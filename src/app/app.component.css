@@ -1,0 +1,9 @@
+.component-container{
+  height: 100%;
+}
+
+.user-register-component{
+  height: 100%;
+  display: block;
+  background-color: red;
+}

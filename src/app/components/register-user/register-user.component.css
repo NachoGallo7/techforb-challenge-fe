@@ -1,0 +1,82 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("C:/Users/juang/Fonts/Poppins/Poppins-Regular.ttf"),
+  }
+
+.component-container{
+  /* background-color: blue; */
+  height: 100%;
+  background-image: url(../../../assets/background/small-gradient-teal-background-scaled.png), url(../../../assets/background/transparent-background-image.png), url(../../../assets/background/gradient-teal-background.png);
+  background-size: 95.5vh, 95.5vh, 100% 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+  justify-content: stretch;
+  font-family: 'Roboto', "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: lighter;
+}
+/* REGISTRATION INFO */
+.registration-info{
+  flex-grow: 1;
+  flex-shrink: 1;
+  color: white;
+  padding: 0 8rem;
+  flex-direction: column;
+  justify-content: center;
+}
+.registration-info h1 {
+  font-weight: bold;
+}
+  .items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .items li {
+    gap: 1rem;
+  }
+  .items h3 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .items p {
+    font-size: .9rem;
+  }
+    li svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+/* REGISTRATION FORM */
+.registration-form-container{
+  flex: 1 0 55%;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--form-bg-color);
+  border-radius: 30px 0 0 30px;
+  padding: 0 8rem;
+}
+.registration-form-container h1{
+  font-weight: bold;
+}
+.registration-form-container small{
+  color: var(--small-text-color);
+}
+.registration-form-container a{
+  color: var(--anchor-text-color);
+  text-decoration: none;
+}
+.registration-form-container button{
+  color: white;
+  background-color: var(--button-bg-color);
+  text-decoration: none;
+}
+  .registration-form{
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+  .button-container{
+    justify-content: space-between;
+    align-items: center;
+  }
+  
