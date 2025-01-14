@@ -18,11 +18,11 @@ import { CommonModule } from '@angular/common';
 export class RegisterUserComponent implements OnInit{
 
   isLargeScreen: boolean = false;
-  breakpointLevel = signal(4);
+  breakpointLevel = signal(1);
   breakpointLevelMap: {[breakpointName: string]: number} = {
     [Breakpoints.XLarge]:   5,
     [Breakpoints.Large]:    4,
-    [Breakpoints.Medium]:    3,
+    [Breakpoints.Medium]:   3,
     [Breakpoints.Small]:    2,
     [Breakpoints.Handset]:  1
   }
