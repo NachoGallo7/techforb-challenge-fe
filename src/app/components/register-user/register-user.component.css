@@ -10,6 +10,7 @@
   font-weight: lighter;
   overflow: hidden;
   position: relative;
+  display: flex;
 }
 .component-container::before{
   content: "";
@@ -33,7 +34,7 @@
   justify-content: center;
   /* BREAKPOINT-RELATED */
   padding: 0 4rem;
-  display: none !important;
+  display: none;
 }
 .registration-info h1, .registration-form-container h1 {
   font-weight: bold;
@@ -53,11 +54,12 @@
   }
   .items li {
     gap: 1rem;
+    display: flex;
   }
   .items h3 {
     font-size: 1rem;
     font-weight: bold;
-    line-height: 1.2 !important;
+    line-height: 1.2;
   }
   .items p {
     font-size: .9rem;
@@ -82,16 +84,17 @@
   justify-content: center;
   border-radius: 0;
   align-items: center;
+  display: flex;
 }
   .registration-form-container .spacer{
     flex: 1 0;
     min-height: 5rem;
     /* BREAKPOINT-RELATED */
-    display: none !important;
+    display: none;
   }
   .registration-form-container h1{
     /* BREAKPOINT-RELATED */
-    display: none !important;
+    display: none;
   }
   .registration-form-container small{
     color: var(--small-text-color);
@@ -110,7 +113,7 @@
   }
   .button-container small{
     /* BREAKPOINT-RELATED */
-    display: none !important;
+    display: none;
   }
   .submit-button{
     color: white;
@@ -131,16 +134,18 @@
   .registration-form{
     flex-direction: column;
     margin-top: 2rem;
+    display: flex;
     /* BREAKPOINT-RELATED */
     width: 100%;
   }
   .button-container{
     justify-content: space-between;
     align-items: center;
+    display: flex;
   }
   .terms-service{
     /* BREAKPOINT-RELATED */
-    display: none !important;
+    display: none;
   }
   .login-cta{
     margin-top: 2rem;
@@ -152,43 +157,44 @@
 /* BREAKPOINTS */
 /* LARGE SCREEN */
 .registration-info.x-large-screen, .registration-form-container.x-large-screen{
-  padding: 0 4rem;
+  padding: 0 7rem;
 }
 .registration-form-container.x-large-screen{
-  justify-content: flex-start;
-
+  /* justify-content: flex-start; PUEDE ESTAR MAL COMENTADO */
 }
   /* SMALL SCREEN */
 .registration-info.medium-screen{
-  display: none !important;
+  display: flex;
 }
 .registration-form-container.medium-screen{
-  border-radius: 0;
-  align-items: center;
+  /* border-radius: 0;
+  align-items: center; */
+  align-items: normal;
+  justify-content: flex-start; /* PUEDE ESTAR MAL */
+  border-radius: 30px 0 0 30px;
 }
-.registration-form-container h1 {
-  display: none !important;
+.registration-form-container.medium-screen h1 {
+  display: block;
 }
 .button-container small.medium-screen{
-  display: none !important;
+  display: inline;
 }
 .button-container .submit-button.medium-screen{
-  flex: 1 0;
+  flex: auto;
 }
 .registration-form.medium-screen{
-  width: 100%;
+  width: auto;
 }
 .registration-form.medium-screen .terms-service{
-  display: none !important;
+  display: inline;
 }
 .registration-form.medium-screen .login-cta{
   /* align-items: center; */
-  align-self: center;
+  align-self: auto;
 }
-.spacer.medium-screen{
-  display: none !important;
+.registration-form-container .spacer.medium-screen{
+  display: block;
 }
-
 
 /* 
 /* OLD LEGACY BREAKPOINTS *-/
