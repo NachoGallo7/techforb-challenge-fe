@@ -180,7 +180,7 @@
   display: inline;
 }
 .button-container .submit-button.medium-screen{
-  flex: auto;
+  flex: initial;
 }
 .registration-form.medium-screen{
   width: auto;
