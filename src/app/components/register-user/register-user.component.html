@@ -1,5 +1,5 @@
 <div class="component-container d-flex">
-  <div class="registration-info d-flex">
+  <div class="registration-info d-flex" [ngClass]="{'small-padding': isLargeScreen}">
     <!-- INFO -->
     <div class="info">
       <h1>Registrarse</h1>
@@ -34,7 +34,8 @@
       </li>
     </ul>
   </div>
-  <div class="registration-form-container d-flex">
+  <div class="registration-form-container d-flex" [ngClass]="{'small-padding': isLargeScreen}">
+    <div class="spacer"></div>
     <h1>Portal de monitoreo</h1>
     <h3>Registrarse</h3>
     <form class="d-flex registration-form" (ngSubmit)="submit()" [formGroup]="registerForm">
@@ -80,5 +81,6 @@
         <p>¿Ya tienes una cuenta? <a href="">Iniciar sesión</a></p>
       </div>
     </form>
+    <div class="spacer"></div>
   </div>
 </div>
