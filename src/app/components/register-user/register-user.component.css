@@ -121,14 +121,18 @@
   }
 
 /* BREAKPOINTS */
+  /* LARGE SCREEN */
 .registration-info.large-screen, .registration-form-container.large-screen{
   padding: 0 4rem;
 }
 .registration-form-container.large-screen{
-  /* padding-top: 5rem;
-  padding-bottom: 5rem;
-  justify-content: flex-start; */
-  /* padding: 10rem 4rem; */
   justify-content: flex-start;
 
+}
+  /* SMALL SCREEN */
+.registration-info.small-screen{
+  display: none !important;
+}
+.registration-form-container.small-screen{
+  border-radius: 0;
 }

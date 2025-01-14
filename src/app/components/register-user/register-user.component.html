@@ -1,5 +1,7 @@
 <div class="component-container d-flex">
-  <div class="registration-info d-flex" [ngClass]="{'large-screen': breakpointLevel()<=breakpointLevelMap[Breakpoints.Large]}">
+  <div class="registration-info d-flex" [ngClass]="{
+      'large-screen': breakpointLevel()<=breakpointLevelMap[Breakpoints.Large], 
+      'small-screen': breakpointLevel()<=breakpointLevelMap[Breakpoints.Small]}">
     <!-- INFO -->
     <div class="info">
       <h1>Registrarse</h1>
@@ -34,7 +36,9 @@
       </li>
     </ul>
   </div>
-  <div class="registration-form-container d-flex" [ngClass]="{'large-screen': breakpointLevel()<=breakpointLevelMap[Breakpoints.Large]}">
+  <div class="registration-form-container d-flex" [ngClass]="{
+      'large-screen': breakpointLevel()<=breakpointLevelMap[Breakpoints.Large], 
+      'small-screen': breakpointLevel()<=breakpointLevelMap[Breakpoints.Small]}">
     <div class="spacer"></div>
     <h1>Portal de monitoreo</h1>
     <h3>Registrarse</h3>

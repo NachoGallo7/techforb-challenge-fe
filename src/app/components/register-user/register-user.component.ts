@@ -20,8 +20,9 @@ export class RegisterUserComponent implements OnInit{
   isLargeScreen: boolean = false;
   breakpointLevel = signal(4);
   breakpointLevelMap: {[breakpointName: string]: number} = {
-    [Breakpoints.XLarge]:   4,
-    [Breakpoints.Large]:    3,
+    [Breakpoints.XLarge]:   5,
+    [Breakpoints.Large]:    4,
+    [Breakpoints.Medium]:    3,
     [Breakpoints.Small]:    2,
     [Breakpoints.Handset]:  1
   }
@@ -42,22 +43,26 @@ export class RegisterUserComponent implements OnInit{
       confirmationPassword: []
     });
 
-    this.breakpointObserver.observe([Breakpoints.XLarge, Breakpoints.Large, Breakpoints.Small, Breakpoints.Handset]).subscribe(result => {
+    this.breakpointObserver.observe([Breakpoints.XLarge, Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small, Breakpoints.Handset]).subscribe(result => {
       if(result.breakpoints[Breakpoints.XLarge]) {
         // X-LARGE
-        this.breakpointLevel.set(4);
+        this.breakpointLevel.set(this.breakpointLevelMap[Breakpoints.XLarge]);
         console.log("X-LARGE");
       } else if (result.breakpoints[Breakpoints.Large]) {
         // LARGE
-        this.breakpointLevel.set(3);
+        this.breakpointLevel.set(this.breakpointLevelMap[Breakpoints.Large]);
         console.log("LARGE");
+      } else if (result.breakpoints[Breakpoints.Medium]) {
+        // MEDIUM
+        this.breakpointLevel.set(this.breakpointLevelMap[Breakpoints.Medium]);
+        console.log("MEDIUM");
       } else if (result.breakpoints[Breakpoints.Small]) {
         // SMALL
-        this.breakpointLevel.set(2);
+        this.breakpointLevel.set(this.breakpointLevelMap[Breakpoints.Small]);
         console.log("SMALL");
       } else if (result.breakpoints[Breakpoints.Handset]) {
         // HANDSET
-        this.breakpointLevel.set(1);
+        this.breakpointLevel.set(this.breakpointLevelMap[Breakpoints.Handset]);
         console.log("HANDSET");
       }
     })
