@@ -1,7 +1,7 @@
 <div class="component-container d-flex">
   <div class="registration-info d-flex" [ngClass]="{
-      'large-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Large], 
-      'small-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Small]}">
+      'x-large-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.XLarge], 
+      'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">
     <!-- INFO -->
     <div class="info">
       <h1>Registrarse</h1>
@@ -37,12 +37,12 @@
     </ul>
   </div>
   <div class="registration-form-container d-flex" [ngClass]="{
-      'large-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Large], 
-      'small-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Small]}">
-    <div class="spacer" [ngClass]="{'small-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Small]}"></div>
-    <h1 [ngClass]="{'small-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Small]}">Portal de monitoreo</h1>
+      'x-large-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.XLarge], 
+      'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">
+    <div class="spacer" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}"></div>
+    <h1 [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">Portal de monitoreo</h1>
     <h3>Registrarse</h3>
-    <form class="d-flex registration-form" [ngClass]="{'small-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Small]}" (ngSubmit)="submit()" [formGroup]="registerForm">
+    <form class="d-flex registration-form" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}" (ngSubmit)="submit()" [formGroup]="registerForm">
       <!-- USERNAME -->
       <mat-form-field appearance="outline">
         <mat-label>Usuario</mat-label>
@@ -74,17 +74,17 @@
         </button>
       </mat-form-field>
       <div class="button-container d-flex">
-        <small class="password-indications" [ngClass]="{'small-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Small]}">- Al menos 8 caracteres<br>- Al menos 1 número<br>- Al menos 1 caracter especial</small>
-        <button class="btn submit-button" [ngClass]="{'small-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Small]}" type="submit">Registrarse</button>
+        <small class="password-indications" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">- Al menos 8 caracteres<br>- Al menos 1 número<br>- Al menos 1 caracter especial</small>
+        <button class="btn submit-button" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}" type="submit">Registrarse</button>
         <!-- <button mat-fab extended>
           Registrarse
         </button> -->
       </div>
-      <small class="terms-service" [ngClass]="{'small-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Small]}">Protegido por reCAPTCHA y sujeto a la <a href="">Política de Privacidad</a> y <a href="">Condiciones</a>.</small>
+      <small class="terms-service" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">Protegido por reCAPTCHA y sujeto a la <a href="">Política de Privacidad</a> y <a href="">Condiciones</a>.</small>
       <div class="login-cta">
         <p>¿Ya tienes una cuenta? <a href="">Iniciar sesión</a></p>
       </div>
     </form>
-    <div class="spacer" [ngClass]="{'small-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Small]}"></div>
+    <div class="spacer" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}"></div>
   </div>
 </div>
