@@ -35,13 +35,14 @@ export class RegisterUserComponent implements OnInit{
   hideConfirmationPasswordSignal = signal(false);
   
   ngOnInit(): void {
-    console.log(this.breakpointLevelMap[Breakpoints.XLarge]);
     this.registerForm = this.formBuilder.group({
       username: [],
       email: [],
       password: [],
       confirmationPassword: []
     });
+
+    setTimeout(() => console.log("CURRENT BREAKPOINT LEVEL: ", this.breakpointLevel()), 5000);
 
     this.breakpointObserver.observe([Breakpoints.XLarge, Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small, Breakpoints.Handset]).subscribe(result => {
       if(result.breakpoints[Breakpoints.XLarge]) {
