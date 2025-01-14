@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, Signal, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'
@@ -18,6 +18,13 @@ import { CommonModule } from '@angular/common';
 export class RegisterUserComponent implements OnInit{
 
   isLargeScreen: boolean = false;
+  breakpointLevel = signal(4);
+  breakpointLevelMap: {[breakpointName: string]: number} = {
+    [Breakpoints.XLarge]:   4,
+    [Breakpoints.Large]:    3,
+    [Breakpoints.Small]:    2,
+    [Breakpoints.Handset]:  1
+  }
 
   constructor(private formBuilder: FormBuilder, 
     private breakpointObserver: BreakpointObserver) {}
@@ -27,6 +34,7 @@ export class RegisterUserComponent implements OnInit{
   hideConfirmationPasswordSignal = signal(false);
   
   ngOnInit(): void {
+    console.log(this.breakpointLevelMap[Breakpoints.XLarge]);
     this.registerForm = this.formBuilder.group({
       username: [],
       email: [],
@@ -37,19 +45,19 @@ export class RegisterUserComponent implements OnInit{
     this.breakpointObserver.observe([Breakpoints.XLarge, Breakpoints.Large, Breakpoints.Small, Breakpoints.Handset]).subscribe(result => {
       if(result.breakpoints[Breakpoints.XLarge]) {
         // X-LARGE
-        this.isLargeScreen = false;
+        this.breakpointLevel.set(4);
         console.log("X-LARGE");
       } else if (result.breakpoints[Breakpoints.Large]) {
         // LARGE
-        this.isLargeScreen = true;
+        this.breakpointLevel.set(3);
         console.log("LARGE");
       } else if (result.breakpoints[Breakpoints.Small]) {
         // SMALL
-        this.isLargeScreen = false;
+        this.breakpointLevel.set(2);
         console.log("SMALL");
       } else if (result.breakpoints[Breakpoints.Handset]) {
         // HANDSET
-        this.isLargeScreen = false;
+        this.breakpointLevel.set(1);
         console.log("HANDSET");
       }
     })
@@ -67,5 +75,9 @@ export class RegisterUserComponent implements OnInit{
 
   submit(): void {
     
+  }
+
+  get Breakpoints() {
+    return Breakpoints;
   }
 }

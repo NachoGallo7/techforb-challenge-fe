@@ -4,15 +4,25 @@
   }
 
 .component-container{
-  /* background-color: blue; */
   height: 100%;
-  background-image: url(../../../assets/background/small-gradient-teal-background-scaled.png), url(../../../assets/background/transparent-background-image.png), url(../../../assets/background/gradient-teal-background.png);
-  background-size: 95.5vh, 95.5vh, 100% 100%;
+  justify-content: stretch;
+  /* font-family: 'Roboto', "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  font-weight: lighter;
+  overflow: hidden;
+  position: relative;
+}
+.component-container::before{
+  content: "";
+  position: absolute;
+  min-width: 50%;
+  min-height: 100%;
+  max-height: 100vh;
+  z-index: -100;
+  aspect-ratio: 856 / 900;
+  background-image: url(../../../assets/background/small-gradient-teal-background-scaled.png), url(../../../assets/background/iconography-background-image.png), url(../../../assets/background/gradient-teal-background.png);
+  background-size: 100%;
   background-position: left center;
   background-repeat: no-repeat;
-  justify-content: stretch;
-  font-family: 'Roboto', "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: lighter;
 }
 /* REGISTRATION INFO */
 .registration-info{
@@ -75,6 +85,10 @@
     color: var(--anchor-text-color);
     text-decoration: none;
   }
+  .registration-form-container a:hover{
+    color: var(--anchor-text-color-hover);
+    text-decoration: none;
+  }
   .button-container{
     margin: 1rem 0;
   }
@@ -83,6 +97,14 @@
     background-color: var(--button-bg-color);
     padding: 1rem 2.5rem;
     border-radius: 16px;
+  }
+  .registration-form-container .submit-button:hover{
+    background-color: var(--button-bg-color-hover);
+    box-shadow: 0 0 1px 2px var(--button-bg-color);
+  }
+  .registration-form-container .submit-button:active{
+    background-color: var(--button-bg-color-active);
+    box-shadow: none;
   }
   .registration-form{
     flex-direction: column;
@@ -99,10 +121,10 @@
   }
 
 /* BREAKPOINTS */
-.registration-info.small-padding, .registration-form-container.small-padding{
+.registration-info.large-screen, .registration-form-container.large-screen{
   padding: 0 4rem;
 }
-.registration-form-container.small-padding{
+.registration-form-container.large-screen{
   /* padding-top: 5rem;
   padding-bottom: 5rem;
   justify-content: flex-start; */

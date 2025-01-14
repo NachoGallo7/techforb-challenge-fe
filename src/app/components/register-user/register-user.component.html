@@ -1,5 +1,5 @@
 <div class="component-container d-flex">
-  <div class="registration-info d-flex" [ngClass]="{'small-padding': isLargeScreen}">
+  <div class="registration-info d-flex" [ngClass]="{'large-screen': breakpointLevel()<=breakpointLevelMap[Breakpoints.Large]}">
     <!-- INFO -->
     <div class="info">
       <h1>Registrarse</h1>
@@ -34,7 +34,7 @@
       </li>
     </ul>
   </div>
-  <div class="registration-form-container d-flex" [ngClass]="{'small-padding': isLargeScreen}">
+  <div class="registration-form-container d-flex" [ngClass]="{'large-screen': breakpointLevel()<=breakpointLevelMap[Breakpoints.Large]}">
     <div class="spacer"></div>
     <h1>Portal de monitoreo</h1>
     <h3>Registrarse</h3>
@@ -71,7 +71,7 @@
       </mat-form-field>
       <div class="button-container d-flex">
         <small class="password-indications">- Al menos 8 caracteres<br>- Al menos 1 número<br>- Al menos 1 caracter especial</small>
-        <button type="submit" class="btn btn-primary submit-button">Registrarse</button>
+        <button type="submit" class="btn submit-button">Registrarse</button>
         <!-- <button mat-fab extended>
           Registrarse
         </button> -->

@@ -5,7 +5,10 @@
   --form-bg-color: #fbfcfc;
   --small-text-color: #84818A;
   --anchor-text-color: #33A3AA;
+  --anchor-text-color-hover: #3B686B;
   --button-bg-color: #33A3AA;
+  --button-bg-color-hover: #3B868B;
+  --button-bg-color-active: #3B686B;
   /* font-size: .9rem; */
 }
 
