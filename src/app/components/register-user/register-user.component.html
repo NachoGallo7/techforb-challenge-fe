@@ -39,29 +39,46 @@
     <h3>Registrarse</h3>
     <form class="d-flex registration-form" (ngSubmit)="submit()" [formGroup]="registerForm">
       <!-- USERNAME -->
-      <div class="form-control-container">
-        <!-- <label for="username" class="form-label">Usuario</label> -->
-        <input type="username" name="username" id="username" formControlName="username" class="form-control" placeholder="Usuario" />
-      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Usuario</mat-label>
+        <input matInput name="username" id="username" formControlName="username">
+      </mat-form-field>
       <!-- EMAIL -->
-      <div class="form-control-container">
-        <!-- <label for="email" class="form-label">Email</label> -->
-        <input type="email" name="email" id="email" formControlName="email" class="form-control" placeholder="Email" />
-      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput name="email" id="email" formControlName="email">
+      </mat-form-field>
       <!-- PASSWORD -->
-      <div class="form-control-container">
-        <input type="password" name="password" id="password" formControlName="password" class="form-control" placeholder="Contraseña" />
-      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [type]="hidePasswordSignal() ? 'password' : 'text'" name="password" id="password"
+          formControlName="password">
+        <button mat-icon-button matSuffix (click)="hidePassword($event)" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePasswordSignal()">
+          <mat-icon>{{hidePasswordSignal() ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
       <!-- PASSWORD CONFIRMATION -->
-      <div class="form-control-container">
-        <input type="password" name="password" id="password" formControlName="password" class="form-control" placeholder="Repetir contraseña" />
-      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Repetir contraseña</mat-label>
+        <input matInput [type]="hideConfirmationPasswordSignal() ? 'password' : 'text'" name="confirmationPassword" id="confirmationPassword" 
+        formControlName="confirmationPassword">
+        <button mat-icon-button matSuffix (click)="hideConfirmationPassword($event)" [attr.aria-label]="'Hide confirmation password'"
+        [attr.aria-pressed]="hideConfirmationPasswordSignal()">
+          <mat-icon>{{hideConfirmationPasswordSignal() ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
       <div class="button-container d-flex">
         <small class="password-indications">- Al menos 8 caracteres<br>- Al menos 1 número<br>- Al menos 1 caracter especial</small>
-        <button type="submit" class="btn btn-primary">Registrarse</button>
+        <button type="submit" class="btn btn-primary submit-button">Registrarse</button>
+        <!-- <button mat-fab extended>
+          Registrarse
+        </button> -->
       </div>
       <small>Protegido por reCAPTCHA y sujeto a la <a href="">Política de Privacidad</a> y <a href="">Condiciones</a>.</small>
-      <p>¿Ya tienes una cuenta? <a href="">Iniciar sesión</a></p>
+      <div class="login-cta">
+        <p>¿Ya tienes una cuenta? <a href="">Iniciar sesión</a></p>
+      </div>
     </form>
   </div>
 </div>

@@ -1,3 +1,5 @@
+
+
 /* You can add global styles to this file, and also import other style files */
 :root{
   --form-bg-color: #fbfcfc;
@@ -8,4 +10,11 @@
 
 HTML, body{
   height: 100%;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* TC REGISTER USER COMPONENT */
+mat-form-field .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 16px !important;
 }
