@@ -6,11 +6,9 @@
   --small-text-color: #84818A;
   --anchor-text-color: #33A3AA;
   --button-bg-color: #33A3AA;
+  /* font-size: .9rem; */
 }
 
-HTML, body{
-  height: 100%;
-}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
