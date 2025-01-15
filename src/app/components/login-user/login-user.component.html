@@ -1,5 +1,5 @@
 <div class="component-container">
-  <div class="registration-info" [ngClass]="{
+  <div class="login-info" [ngClass]="{
       'x-large-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.XLarge], 
       'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">
     <!-- INFO -->
@@ -36,13 +36,13 @@
       </li>
     </ul>
   </div>
-  <div class="registration-form-container" [ngClass]="{
+  <div class="login-form-container" [ngClass]="{
       'x-large-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.XLarge], 
       'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">
     <div class="outer-spacer" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}"></div>
     <h1 [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">Portal de monitoreo</h1>
     <h3 class="indicative-title">Iniciar sesión</h3>
-    <form class="registration-form" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}" (ngSubmit)="submit()" [formGroup]="registerForm">
+    <form class="login-form" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}" (ngSubmit)="submit()" [formGroup]="registerForm">
       <!-- EMAIL -->
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
@@ -65,9 +65,11 @@
         <!-- <small class="password-indications" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">- Al menos 8 caracteres<br>- Al menos 1 número<br>- Al menos 1 caracter especial</small> -->
         <button class="btn submit-button" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}" type="submit">Iniciar sesión</button>
       </div>
-      <small class="terms-service" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">Protegido por reCAPTCHA y sujeto a la <a href="">Política de Privacidad</a> y <a href="">Condiciones</a>.</small>
-      <div class="login-cta">
-        <p class="indicative-footer">¿No tienes una cuenta? <a href="">Registrarse</a></p>
+      <small class="terms-service" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">
+        Protegido por reCAPTCHA y sujeto a la <a href="https://techforb.com/es/techforb-ar" target="_blank" rel="noopener">Política de Privacidad</a> y <a href="https://techforb.com/es/techforb-ar" target="_blank" rel="noopener">Condiciones</a>.
+      </small>
+      <div class="register-cta">
+        <p class="indicative-footer">¿No tienes una cuenta? <a [routerLink]="['/register']">Registrarse</a></p>
       </div>
     </form>
     <div class="outer-spacer" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}"></div>

@@ -80,9 +80,11 @@
           Registrarse
         </button> -->
       </div>
-      <small class="terms-service" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">Protegido por reCAPTCHA y sujeto a la <a href="">Política de Privacidad</a> y <a href="">Condiciones</a>.</small>
+      <small class="terms-service" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">
+        Protegido por reCAPTCHA y sujeto a la <a href="https://techforb.com/es/techforb-ar" target="_blank" rel="noopener">Política de Privacidad</a> y <a href="https://techforb.com/es/techforb-ar" target="_blank" rel="noopener">Condiciones</a>.
+      </small>
       <div class="login-cta">
-        <p>¿Ya tienes una cuenta? <a href="">Iniciar sesión</a></p>
+        <p>¿Ya tienes una cuenta? <a [routerLink]="['/login']">Iniciar sesión</a></p>
       </div>
     </form>
     <div class="spacer" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}"></div>

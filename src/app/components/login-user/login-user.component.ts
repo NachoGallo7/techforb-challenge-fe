@@ -6,11 +6,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { UserService } from '../../services/user.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'tc-login-user',
   standalone: true,
-  imports: [ReactiveFormsModule, MatInputModule, MatIconModule, MatButtonModule, MatFormFieldModule, CommonModule],
+  imports: [ReactiveFormsModule, MatInputModule, MatIconModule, MatButtonModule, MatFormFieldModule, CommonModule, RouterModule],
   templateUrl: './login-user.component.html',
   styleUrl: './login-user.component.css'
 })
@@ -27,7 +29,8 @@ export class LoginUserComponent implements OnInit{
   }
 
   constructor(private formBuilder: FormBuilder, 
-    private breakpointObserver: BreakpointObserver) {}
+    private breakpointObserver: BreakpointObserver,
+    private userService: UserService) {}
   
   registerForm!: FormGroup;
   hidePasswordSignal = signal(false);
@@ -79,7 +82,7 @@ export class LoginUserComponent implements OnInit{
   }
 
   submit(): void {
-    
+    // this.userService.register("sadf", "igna@gmail.com", "123456789", "123456789").subscribe(response => console.log(response));
   }
 
   get Breakpoints() {

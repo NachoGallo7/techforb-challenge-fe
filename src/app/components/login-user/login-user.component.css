@@ -26,7 +26,7 @@
   background-repeat: no-repeat;
 }
 /* REGISTRATION INFO */
-.registration-info{
+.login-info{
   flex: 1 1 45%;
   color: white;
   /* padding: 0 7rem; */
@@ -36,15 +36,15 @@
   padding: 0 4rem;
   display: none;
 }
-.registration-info h1, .registration-form-container h1 {
+.login-info h1, .login-form-container h1 {
   font-weight: bold;
   margin: 0;
   font-size: 3rem;
 }
-  .registration-info .info{
+  .login-info .info{
     margin-bottom: 1rem;
   }
-  .registration-info .info h1{
+  .login-info .info h1{
     margin-bottom: 1rem;
   }
   .items {
@@ -70,7 +70,7 @@
     }
 
 /* REGISTRATION FORM */
-.registration-form-container{
+.login-form-container{
   flex: 1 1 55%;
   flex-direction: column;
   background-color: var(--form-bg-color);
@@ -87,27 +87,27 @@
   /* padding: 4rem 4rem; */
   padding: 3rem 4rem 1rem;
 }
-  .registration-form-container .outer-spacer{
+  .login-form-container .outer-spacer{
     flex: 1 0;
     min-height: 5rem;
     /* BREAKPOINT-RELATED */
     display: none;
   }
-  .registration-form-container h1{
+  .login-form-container h1{
     /* BREAKPOINT-RELATED */
     display: none;
   }
-  .registration-form-container .indicative-title{
+  .login-form-container .indicative-title{
     text-align: center;
   }
-  .registration-form-container small{
+  .login-form-container small{
     color: var(--small-text-color);
   }
-  .registration-form-container a{
+  .login-form-container a{
     color: var(--anchor-text-color);
     text-decoration: none;
   }
-  .registration-form-container a:hover{
+  .login-form-container a:hover{
     color: var(--anchor-text-color-hover);
     text-decoration: none;
   }
@@ -139,10 +139,10 @@
     background-color: var(--button-bg-color-active);
     box-shadow: none;
   }
-  .registration-form-container .indicative-footer{
+  .login-form-container .indicative-footer{
     text-align: center;
   }
-  .registration-form{
+  .login-form{
     flex-direction: column;
     margin-top: 2rem;
     display: flex;
@@ -159,7 +159,7 @@
     /* BREAKPOINT-RELATED */
     display: none;
   }
-  .login-cta{
+  .register-cta{
     margin-top: 2rem;
     /* BREAKPOINT-RELATED */
     align-self: center;
@@ -168,24 +168,24 @@
 
 /* BREAKPOINTS */
 /* LARGE SCREEN */
-.registration-info.x-large-screen, .registration-form-container.x-large-screen{
+.login-info.x-large-screen, .login-form-container.x-large-screen{
   padding: 0 7rem;
 }
   /* SMALL SCREEN */
-.registration-info.medium-screen, .registration-form-container.medium-screen{
+.login-info.medium-screen, .login-form-container.medium-screen{
   padding: 0 4rem;
 }
-.registration-info.medium-screen{
+.login-info.medium-screen{
   display: flex;
 }
-.registration-form-container.medium-screen{
+.login-form-container.medium-screen{
   /* border-radius: 0;
   align-items: center; */
   align-items: normal;
   justify-content: flex-start; /* PUEDE ESTAR MAL */
   border-radius: 30px 0 0 30px;
 }
-.registration-form-container.medium-screen h1 {
+.login-form-container.medium-screen h1 {
   display: block;
 }
 .button-container .password-indications.medium-screen{
@@ -194,22 +194,22 @@
 .button-container .submit-button.medium-screen{
   flex: initial;
 }
-.registration-form.medium-screen{
+.login-form.medium-screen{
   width: auto;
 }
-.registration-form.medium-screen .terms-service{
+.login-form.medium-screen .terms-service{
   display: inline;
 }
-.registration-form.medium-screen .login-cta{
+.login-form.medium-screen .register-cta{
   /* align-items: center; */
   align-self: auto;
 }
-.registration-form-container .outer-spacer.medium-screen{
+.login-form-container .outer-spacer.medium-screen{
   display: block;
 }
-.registration-form-container.medium-screen .indicative-title{
+.login-form-container.medium-screen .indicative-title{
   text-align: initial;
 }
-.registration-form-container.medium-screen .indicative-footer{
+.login-form-container.medium-screen .indicative-footer{
   text-align: initial;
 }
