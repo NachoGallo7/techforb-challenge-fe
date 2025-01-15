@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 
 @Component({
@@ -29,7 +30,8 @@ export class RegisterUserComponent implements OnInit{
   }
 
   constructor(private formBuilder: FormBuilder, 
-    private breakpointObserver: BreakpointObserver) {}
+    private breakpointObserver: BreakpointObserver,
+    private userService: UserService) {}
   
   registerForm!: FormGroup;
   hidePasswordSignal = signal(false);
@@ -81,10 +83,23 @@ export class RegisterUserComponent implements OnInit{
   }
 
   submit(): void {
-    
+    this.userService.register(this.username?.value, this.email?.value, this.password?.value).subscribe(response => console.log(response));
   }
 
   get Breakpoints() {
     return Breakpoints;
+  }
+
+  get username() {
+    return this.registerForm.get('username');
+  }
+  get email() {
+    return this.registerForm.get('email');
+  }
+  get password() {
+    return this.registerForm.get('password');
+  }
+  get confirmationPassword() {
+    return this.registerForm.get('confirmationPassword');
   }
 }

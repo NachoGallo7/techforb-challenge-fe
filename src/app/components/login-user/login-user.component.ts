@@ -38,10 +38,8 @@ export class LoginUserComponent implements OnInit{
   
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      username: [],
       email: [],
-      password: [],
-      confirmationPassword: []
+      password: []
     });
 
     setTimeout(() => console.log("CURRENT BREAKPOINT LEVEL: ", this.breakpointLevel()), 5000);
@@ -82,10 +80,17 @@ export class LoginUserComponent implements OnInit{
   }
 
   submit(): void {
-    // this.userService.register("sadf", "igna@gmail.com", "123456789", "123456789").subscribe(response => console.log(response));
+    this.userService.login(this.email?.value, this.password?.value).subscribe(response => console.log(response));
   }
 
   get Breakpoints() {
     return Breakpoints;
+  }
+  
+  get email() {
+    return this.registerForm.get('email');
+  }
+  get password() {
+    return this.registerForm.get('password');
   }
 }
