@@ -80,11 +80,12 @@
   /* border-radius: 30px 0 0 30px; */
   overflow-y: auto;
   /* BREAKPOINT-RELATED */
-  padding: 0 4rem;
   justify-content: center;
   border-radius: 0;
   align-items: center;
   display: flex;
+  /* padding: 4rem 4rem; */
+  padding: 3rem 4rem 1rem;
 }
   .registration-form-container .outer-spacer{
     flex: 1 0;
@@ -96,6 +97,9 @@
     /* BREAKPOINT-RELATED */
     display: none;
   }
+  .registration-form-container .indicative-title{
+    text-align: center;
+  }
   .registration-form-container small{
     color: var(--small-text-color);
   }
@@ -106,6 +110,9 @@
   .registration-form-container a:hover{
     color: var(--anchor-text-color-hover);
     text-decoration: none;
+  }
+  .inner-spacer{
+    flex-grow: 1;
   }
   .button-container{
     margin: 1rem 0;
@@ -132,12 +139,16 @@
     background-color: var(--button-bg-color-active);
     box-shadow: none;
   }
+  .registration-form-container .indicative-footer{
+    text-align: center;
+  }
   .registration-form{
     flex-direction: column;
     margin-top: 2rem;
     display: flex;
     /* BREAKPOINT-RELATED */
     width: 100%;
+    flex: 1 0;
   }
   .button-container{
     justify-content: space-between;
@@ -160,10 +171,10 @@
 .registration-info.x-large-screen, .registration-form-container.x-large-screen{
   padding: 0 7rem;
 }
-.registration-form-container.x-large-screen{
-  /* justify-content: flex-start; PUEDE ESTAR MAL COMENTADO */
-}
   /* SMALL SCREEN */
+.registration-info.medium-screen, .registration-form-container.medium-screen{
+  padding: 0 4rem;
+}
 .registration-info.medium-screen{
   display: flex;
 }
@@ -195,4 +206,10 @@
 }
 .registration-form-container .outer-spacer.medium-screen{
   display: block;
+}
+.registration-form-container.medium-screen .indicative-title{
+  text-align: initial;
+}
+.registration-form-container.medium-screen .indicative-footer{
+  text-align: initial;
 }

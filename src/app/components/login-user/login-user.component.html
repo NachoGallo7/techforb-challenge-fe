@@ -41,7 +41,7 @@
       'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">
     <div class="outer-spacer" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}"></div>
     <h1 [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">Portal de monitoreo</h1>
-    <h3>Iniciar sesión</h3>
+    <h3 class="indicative-title">Iniciar sesión</h3>
     <form class="registration-form" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}" (ngSubmit)="submit()" [formGroup]="registerForm">
       <!-- EMAIL -->
       <mat-form-field appearance="outline">
@@ -58,7 +58,8 @@
           <mat-icon>{{hidePasswordSignal() ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
-      <div class="inner-spacer"></div>
+      <!-- ADD THIS INNER-SPACER TO THE REGISTER COMPONENT -->
+      <div class="inner-spacer"></div> 
       <div class="button-container">
         <p class="password-indications" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">¿Olvidaste tu contraseña?</p>
         <!-- <small class="password-indications" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">- Al menos 8 caracteres<br>- Al menos 1 número<br>- Al menos 1 caracter especial</small> -->
@@ -66,7 +67,7 @@
       </div>
       <small class="terms-service" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">Protegido por reCAPTCHA y sujeto a la <a href="">Política de Privacidad</a> y <a href="">Condiciones</a>.</small>
       <div class="login-cta">
-        <p>¿No tienes una cuenta? <a href="">Registrarse</a></p>
+        <p class="indicative-footer">¿No tienes una cuenta? <a href="">Registrarse</a></p>
       </div>
     </form>
     <div class="outer-spacer" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}"></div>
