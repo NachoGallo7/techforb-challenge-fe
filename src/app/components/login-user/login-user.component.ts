@@ -1,21 +1,20 @@
-import { Component, OnInit, Signal, signal } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon'
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-
+import { Component, OnInit, signal } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'tc-register-user',
+  selector: 'tc-login-user',
   standalone: true,
   imports: [ReactiveFormsModule, MatInputModule, MatIconModule, MatButtonModule, MatFormFieldModule, CommonModule],
-  templateUrl: './register-user.component.html',
-  styleUrl: './register-user.component.css'
+  templateUrl: './login-user.component.html',
+  styleUrl: './login-user.component.css'
 })
-export class RegisterUserComponent implements OnInit{
+export class LoginUserComponent implements OnInit{
 
   isLargeScreen: boolean = false;
   breakpointLevel = signal(1);
