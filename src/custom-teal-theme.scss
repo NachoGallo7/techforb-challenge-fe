@@ -1,0 +1,77 @@
+@use "@angular/material" as mat;
+
+// Custom color palette
+$my-primary: mat.define-palette(mat.mat-palette((50: #e0f7f9,
+        100: #b3ecf0,
+        200: #80e0e7,
+        300: #4dd4de,
+        400: #26cbd8,
+        500: #33A3AA, // Your base color
+        600: #2d9398,
+        700: #267f83,
+        800: #206b6f,
+        900: #154f51,
+        A100: #a1fcff,
+        A200: #6ef9ff,
+        A400: #3bf6ff,
+        A700: #21f4ff,
+        contrast: (50: mat.get-contrast(mat.define-color(#e0f7f9)),
+          100: mat.get-contrast(mat.define-color(#b3ecf0)),
+          200: mat.get-contrast(mat.define-color(#80e0e7)),
+          300: mat.get-contrast(mat.define-color(#4dd4de)),
+          400: mat.get-contrast(mat.define-color(#26cbd8)),
+          500: mat.get-contrast(mat.define-color(#33A3AA)),
+          600: mat.get-contrast(mat.define-color(#2d9398)),
+          700: mat.get-contrast(mat.define-color(#267f83)),
+          800: mat.get-contrast(mat.define-color(#206b6f)),
+          900: mat.get-contrast(mat.define-color(#154f51)),
+          A100: mat.get-contrast(mat.define-color(#a1fcff)),
+          A200: mat.get-contrast(mat.define-color(#6ef9ff)),
+          A400: mat.get-contrast(mat.define-color(#3bf6ff)),
+          A700: mat.get-contrast(mat.define-color(#21f4ff)),
+        ),
+      )));
+
+$my-accent: mat.define-palette(mat.mat-palette((50: #ffebee,
+        100: #ffcdd2,
+        200: #ef9a9a,
+        300: #e57373,
+        400: #ef5350,
+        500: #f44336,
+        600: #e53935,
+        700: #d32f2f,
+        800: #c62828,
+        900: #b71c1c,
+        A100: #ff8a80,
+        A200: #ff5252,
+        A400: #ff1744,
+        A700: #d50000,
+        contrast: (50: mat-dark-contrast,
+          100: mat-dark-contrast,
+          200: mat-dark-contrast,
+          300: mat-dark-contrast,
+          400: mat-dark-contrast,
+          500: mat-light-contrast,
+          600: mat-light-contrast,
+          700: mat-light-contrast,
+          800: mat-light-contrast,
+          900: mat-light-contrast,
+          A100: mat-dark-contrast,
+          A200: mat-dark-contrast,
+          A400: mat-dark-contrast,
+          A700: mat-dark-contrast,
+        ),
+      )));
+$my-warn: mat.define-palette(mat.mat-palette($mat-red));
+
+// Define your custom theme
+$my-theme: mat.define-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+    warn: $my-warn,
+  )
+));
+
+// Apply the theme to your app
+@include mat.all-component-themes($my-theme);
