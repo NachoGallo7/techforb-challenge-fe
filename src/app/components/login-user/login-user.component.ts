@@ -8,6 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { UserService } from '../../services/user.service';
 import { RouterModule } from '@angular/router';
+import { TokenService } from '../../services/token.service';
+import { TokenDTO } from '../../models/user';
+import { PlantService } from '../../services/plant.service';
 
 @Component({
   selector: 'tc-login-user',
@@ -30,7 +33,9 @@ export class LoginUserComponent implements OnInit{
 
   constructor(private formBuilder: FormBuilder, 
     private breakpointObserver: BreakpointObserver,
-    private userService: UserService) {}
+    private userService: UserService,
+    private tokenService: TokenService,
+    private plantService: PlantService) {}
   
   registerForm!: FormGroup;
   hidePasswordSignal = signal(false);
@@ -80,7 +85,10 @@ export class LoginUserComponent implements OnInit{
   }
 
   submit(): void {
-    this.userService.login(this.email?.value, this.password?.value).subscribe(response => console.log(response));
+    // this.userService.login(this.email?.value, this.password?.value).subscribe({
+    //   next: (response => this.tokenService.setToken((response as TokenDTO).token))
+    // });
+    this.plantService.getAll().subscribe(response => console.log(response));
   }
 
   get Breakpoints() {
