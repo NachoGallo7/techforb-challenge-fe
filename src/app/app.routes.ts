@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { LoginUserComponent } from './components/login-user/login-user.component';
 import { PlantsDashboardComponent } from './components/plants-dashboard/plants-dashboard.component';
+import { MainContentComponent } from './components/main-content/main-content.component';
 
 export const routes: Routes = [
   {
@@ -11,6 +12,6 @@ export const routes: Routes = [
   }, {
     path: 'login', loadComponent: () => import('./components/login-user/login-user.component').then(c => c.LoginUserComponent)
   }, {
-    path: 'plants', component: PlantsDashboardComponent
+    path: 'dashboard', component: MainContentComponent
   }
 ];

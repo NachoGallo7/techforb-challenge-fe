@@ -2,6 +2,7 @@
 
 /* You can add global styles to this file, and also import other style files */
 :root{
+  --dashboard-bg-color: #E9F1F4;
   --form-bg-color: #fbfcfc;
   --small-text-color: #84818A;
   --anchor-text-color: #33A3AA;

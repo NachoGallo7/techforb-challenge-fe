@@ -1,0 +1,17 @@
+.component-container{
+  height: 100%;
+  display: flex;
+}
+
+.sidebar-component{
+  flex-grow: 5;
+  flex-basis: 0;
+  box-shadow: 3px 0px 5px 0px #0000001A;
+  z-index: 10;
+}
+
+.dashboard-component{
+  flex-grow: 95;
+  flex-basis: 0;
+  /* background-color: red; */
+}
