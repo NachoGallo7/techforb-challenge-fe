@@ -1,0 +1,15 @@
+.component-container{
+  height: 100%;
+  display: flex;
+}
+
+.sidebar-container{
+  flex-grow: 5;
+  flex-basis: 0;
+}
+
+.dashboard-container{
+  flex-grow: 95;
+  flex-basis: 0;
+  background-color: red;
+}
