@@ -15,8 +15,10 @@ export class MainContentComponent implements OnInit{
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
-    this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.Medium]).subscribe(result => {
-      if(result.breakpoints[Breakpoints.Medium]) {
+    this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.Medium, Breakpoints.Large]).subscribe(result => {
+      if(result.breakpoints[Breakpoints.Large]) {
+        console.log("LARGE");
+      } else if(result.breakpoints[Breakpoints.Medium]) {
         console.log("MEDIUM");
       } else if(result.breakpoints[Breakpoints.Small]) {
         console.log("SMALL");

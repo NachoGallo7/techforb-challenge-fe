@@ -2,6 +2,7 @@
   background-color: #fff;
   border-radius: 15px;
   padding: 1.5rem;
+  height: 100%;
 }
   .header-section{
     display: flex;

@@ -39,10 +39,11 @@
     }
   .table-section{
     width: 100%;
+    flex: 1 0;
   }
 
 /* BREAKPOINTS */
-@media (min-width: 1101px) {
+@media (min-width: 1241px) {
   .kpis-section{
     grid-template-columns: repeat(4, 1fr);
   }
