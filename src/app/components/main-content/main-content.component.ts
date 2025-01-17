@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PlantsDashboardComponent } from '../plants-dashboard/plants-dashboard.component';
 import { MainSidebarComponent } from "../main-sidebar/main-sidebar.component";
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'tc-main-content',
@@ -9,6 +10,17 @@ import { MainSidebarComponent } from "../main-sidebar/main-sidebar.component";
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.css'
 })
-export class MainContentComponent {
+export class MainContentComponent implements OnInit{
 
+  constructor(private breakpointObserver: BreakpointObserver) {}
+
+  ngOnInit(): void {
+    this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.Medium]).subscribe(result => {
+      if(result.breakpoints[Breakpoints.Medium]) {
+        console.log("MEDIUM");
+      } else if(result.breakpoints[Breakpoints.Small]) {
+        console.log("SMALL");
+      }
+    });
+  }
 }

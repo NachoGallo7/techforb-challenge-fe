@@ -20,6 +20,12 @@
     display: flex;
     gap: 1rem;
   }
+    .pair-divider{
+      flex-grow: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
     .kpi-component{
       display: flex;
       flex-grow: 1;
