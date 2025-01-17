@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { PlantsDashboardComponent } from '../plants-dashboard/plants-dashboard.component';
-import { PlantsDashboardSidebarComponent } from '../plants-dashboard-sidebar/plants-dashboard-sidebar.component';
 import { MainSidebarComponent } from "../main-sidebar/main-sidebar.component";
 
 @Component({

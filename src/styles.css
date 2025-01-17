@@ -2,7 +2,15 @@
 
 /* You can add global styles to this file, and also import other style files */
 :root{
+  /* DASHBOARD */
   --dashboard-bg-color: #E9F1F4;
+  --kpi-bg-color-ok: #EBF8F9;
+  --kpi-bg-color-warning: #FFFACD;
+  --kpi-bg-color-error: #F6968180;
+  --kpi-bg-color-disabled: #FADABCC9;
+  --icon-enabled-color: #000;
+  --icon-disabled-color: #C1C1C1;
+  /* FORMS */
   --form-bg-color: #fbfcfc;
   --small-text-color: #84818A;
   --anchor-text-color: #33A3AA;
@@ -10,9 +18,6 @@
   --button-bg-color: #33A3AA;
   --button-bg-color-hover: #3B868B;
   --button-bg-color-active: #3B686B;
-  --icon-enabled-color: #000;
-  --icon-disabled-color: #C1C1C1;
-  /* font-size: .9rem; */
 }
 
 html, body { height: 100%; }

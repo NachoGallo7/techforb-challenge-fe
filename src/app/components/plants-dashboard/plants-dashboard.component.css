@@ -16,3 +16,12 @@
       align-items: center;
       gap: 1rem;
     }
+  .kpis-section{
+    display: flex;
+    gap: 1rem;
+  }
+    .kpi-component{
+      display: flex;
+      flex-grow: 1;
+      flex-basis: 0;
+    }
