@@ -21,15 +21,17 @@
       gap: 1rem;
     }
   .kpis-section{
-    display: flex;
-    gap: 1rem;
+    /* display: flex; */
+    gap: 1rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
-    .pair-divider{
+    /* .pair-divider{
       flex-grow: 1;
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
-    }
+    } */
     .kpi-component{
       display: flex;
       flex-grow: 1;
@@ -38,3 +40,14 @@
   .table-section{
     width: 100%;
   }
+
+/* BREAKPOINTS */
+/* .component-container.medium-screen .kpis-section{
+  grid-template-columns: repeat(4, 1fr);
+} */
+
+@media (min-width: 1101px) {
+  .kpis-section{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
