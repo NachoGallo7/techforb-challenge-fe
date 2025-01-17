@@ -2,7 +2,7 @@ export interface PlantDTO {
   id: number;
   name: string;
   country: string;
-  contryCode: string;
+  countryCode: string;
   readings: number;
   warnings: number;
   alerts: number;

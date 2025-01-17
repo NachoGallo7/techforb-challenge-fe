@@ -1,0 +1,38 @@
+.component-container{
+  display: flex;
+  background: #fff;
+  border-radius: 15px;
+  width: max-content;
+  padding: 1rem;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+.info-section .title{
+  font-size: .75rem;
+  color: #8E8EA1;
+}
+.info-section .value{
+  margin: 0;
+  display: block;
+}
+.icon-holder{
+  display: grid;
+  place-content: center;
+  border-radius: 100%;
+  width: 3.5rem;
+  aspect-ratio: 1/1;
+}
+.icon-holder.ok{
+  background-color: var(--kpi-bg-color-ok);
+}
+.icon-holder.warning{
+  background-color: var(--kpi-bg-color-warning);
+}
+.icon-holder.error{
+  background-color: var(--kpi-bg-color-error);
+}
+.icon-holder.disabled{
+  background-color: var(--kpi-bg-color-disabled);
+}

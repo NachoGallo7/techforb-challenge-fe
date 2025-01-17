@@ -1,0 +1,26 @@
+.header-section .title{
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.header-section .subtitle{
+  color: var(--primary-color);
+  font-weight: 500;
+  margin: 0;
+  vertical-align: middle;
+  display: inline;
+}
+.kpis-section{
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20%, 23.4%));
+  gap: 1rem 2rem; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+.kpi-component{
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 23.4;
+}

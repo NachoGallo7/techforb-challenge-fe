@@ -1,0 +1,19 @@
+<div class="component-container">
+  <div class="header-section">
+    <h3 class="title">Monitoreo por plantas</h3>
+    <div class="subtitle-holder">
+      <span class="fi fi-{{currentPlant?.countryCode}}"></span><p class="subtitle"> {{currentPlant?.country}},
+        {{currentPlant?.name}}</p>
+    </div>
+  </div>
+  <div class="kpis-section">
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Temperatura" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.temperature"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Presión" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.pressure"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Viento" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.wind"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Niveles" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.levels"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Energía" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.energy"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Tensión" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.tension"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Monóxido de carbono" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.carbonMonoxide"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Otros gases" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.otherGasses"></tc-per-plant-kpi-indicator>
+  </div>
+</div>

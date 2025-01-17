@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GlobalKpiStates } from '../../models/kpis-styles';
+import { GlobalKpiStyles } from '../../models/kpis-styles';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,9 +12,9 @@ import { CommonModule } from '@angular/common';
 export class GlobalKpiIndicatorComponent {
   @Input() title!: string;
   @Input() value!: string;
-  @Input() style!: GlobalKpiStates;
+  @Input() style!: GlobalKpiStyles;
 
   get globalKpiStates() {
-    return GlobalKpiStates;
+    return GlobalKpiStyles;
   }
 }

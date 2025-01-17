@@ -11,8 +11,7 @@
   .header-section .title{
     margin: 0;
     font-size: 1.1rem;
-    font-weight: bold;
-    margin: 0;
+    font-weight: 700;
   }
   .header-section .create-button{
     border: 1px solid var(--table-accent-color);
@@ -27,9 +26,6 @@
   .table .table-header th{
     font-weight: normal;
     color: var(--table-accent-color);
-  }
-  .table .fi{
-    border-radius: 3px;
   }
   .table .table-body tr{
     border-radius: 8px;
