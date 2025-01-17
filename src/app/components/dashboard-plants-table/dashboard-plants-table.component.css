@@ -1,0 +1,49 @@
+.component-container{
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 1.5rem;
+}
+  .header-section{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .header-section .title{
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  .header-section .create-button{
+    border: 1px solid var(--table-accent-color);
+    padding: .25rem 1.5rem;
+    font-size: .9rem;
+    font-weight: 500;
+    /* font-weight: bold; */
+  }
+  .table tr{
+    vertical-align: middle;
+  }
+  .table .table-header th{
+    font-weight: normal;
+    color: var(--table-accent-color);
+  }
+  .table .table-body tr{
+    border-radius: 8px;
+  }
+  .table .table-body td{
+    background-color: transparent;
+  }
+  .table .table-body td:first-child{
+    border-radius: 8px 0 0 8px;
+  }
+  .table .table-body td:last-child{
+    border-radius: 0 8px 8px 0;
+  }
+  .table .table-body tr:hover{
+    background: var(--table-row-hover-color);
+  }
+  .table .table-body tr:hover td:nth-child(1), .table .table-body tr:hover td:nth-child(2){
+    color: var(--primary-color);
+    font-weight: 500;
+  }

@@ -2,6 +2,8 @@
 
 /* You can add global styles to this file, and also import other style files */
 :root{
+  /* GENERAL */
+  --primary-color: #33A3AA;
   /* DASHBOARD */
   --dashboard-bg-color: #E9F1F4;
   --kpi-bg-color-ok: #EBF8F9;
@@ -10,6 +12,8 @@
   --kpi-bg-color-disabled: #FADABCC9;
   --icon-enabled-color: #000;
   --icon-disabled-color: #C1C1C1;
+  --table-accent-color: #B0CAD1;
+  --table-row-hover-color: #EFF2F7;
   /* FORMS */
   --form-bg-color: #fbfcfc;
   --small-text-color: #84818A;
