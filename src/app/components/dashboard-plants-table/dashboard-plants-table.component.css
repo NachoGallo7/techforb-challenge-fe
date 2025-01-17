@@ -28,6 +28,9 @@
     font-weight: normal;
     color: var(--table-accent-color);
   }
+  .table .fi{
+    border-radius: 3px;
+  }
   .table .table-body tr{
     border-radius: 8px;
   }
