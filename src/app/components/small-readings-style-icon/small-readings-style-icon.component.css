@@ -14,3 +14,6 @@
 .component-container.error{
   background-color: var(--kpi-bg-color-error);
 }
+.component-container.disabled{
+  background-color: var(--kpi-bg-color-disabled);
+}

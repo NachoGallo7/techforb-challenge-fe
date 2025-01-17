@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { PlantDTO } from '../../models/plants';
 import { MatIconModule } from '@angular/material/icon';
+import { SmallReadingsStyleIconComponent } from "../small-readings-style-icon/small-readings-style-icon.component";
+import { GlobalKpiStyles } from '../../models/kpis-styles';
 
 @Component({
   selector: 'tc-dashboard-plants-table',
   standalone: true,
-  imports: [MatIconModule],
+  imports: [MatIconModule, SmallReadingsStyleIconComponent],
   templateUrl: './dashboard-plants-table.component.html',
   styleUrl: './dashboard-plants-table.component.css'
 })
@@ -32,4 +34,8 @@ export class DashboardPlantsTableComponent {
     disabledSensors: 0,
     isActive: true,
   }];
+
+  get globalKpiStyles() {
+    return GlobalKpiStyles;
+  }
 }

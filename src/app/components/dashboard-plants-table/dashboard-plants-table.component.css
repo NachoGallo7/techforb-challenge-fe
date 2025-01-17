@@ -23,6 +23,11 @@
   .table tr{
     vertical-align: middle;
   }
+  .table .table-header .icon-title{
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+  }
   .table .table-header th{
     font-weight: normal;
     color: var(--table-accent-color);
