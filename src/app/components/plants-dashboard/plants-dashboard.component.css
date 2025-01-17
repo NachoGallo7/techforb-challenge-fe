@@ -42,10 +42,6 @@
   }
 
 /* BREAKPOINTS */
-/* .component-container.medium-screen .kpis-section{
-  grid-template-columns: repeat(4, 1fr);
-} */
-
 @media (min-width: 1101px) {
   .kpis-section{
     grid-template-columns: repeat(4, 1fr);

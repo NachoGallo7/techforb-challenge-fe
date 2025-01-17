@@ -9,13 +9,26 @@
   justify-content: space-between;
   flex-grow: 1;
 }
+.info-section{
+  flex: 1 0;
+}
 .info-section .title{
   font-size: .75rem;
   color: #8E8EA1;
 }
-.info-section .value{
+.values-holder{
+  display: flex;
+  justify-content: space-between;
+  max-width: 10rem;
+  font-size: .8rem;
+}
+.values-holder .value{
   margin: 0;
-  display: block;
+}
+.icon-value{
+  display: flex;
+  align-items: center;
+  gap: .3rem;
 }
 .icon-holder{
   display: grid;

@@ -1,0 +1,16 @@
+.component-container{
+  border-radius: 100%;
+  width: 1rem;
+  height: 1rem;
+  display: grid;
+  place-content: center;
+}
+.component-container.ok{
+  background-color: var(--kpi-bg-color-ok);
+}
+.component-container.warning{
+  background-color: var(--kpi-bg-color-warning);
+}
+.component-container.error{
+  background-color: var(--kpi-bg-color-error);
+}
