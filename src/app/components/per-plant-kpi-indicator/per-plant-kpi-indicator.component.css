@@ -23,16 +23,5 @@
   border-radius: 100%;
   width: 3.5rem;
   aspect-ratio: 1/1;
-}
-.icon-holder.ok{
-  background-color: var(--kpi-bg-color-ok);
-}
-.icon-holder.warning{
-  background-color: var(--kpi-bg-color-warning);
-}
-.icon-holder.error{
-  background-color: var(--kpi-bg-color-error);
-}
-.icon-holder.disabled{
-  background-color: var(--kpi-bg-color-disabled);
+  background-color: var(--per-detail-kpi-color-accent);
 }

@@ -11,16 +11,16 @@
   display: inline;
 }
 .kpis-section{
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20%, 23.4%));
-  gap: 1rem 2rem; */
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-columns: repeat(auto-fit, minmax(20%, 23.4%)); */
   gap: 1rem 2rem;
+  /* display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem; */
 }
 .kpi-component{
   display: flex;
   flex-grow: 1;
   flex-basis: 0;
-  max-width: 23.4;
 }
