@@ -1,9 +1,4 @@
 <div class="component-container">
-  <!-- Button trigger modal -->
-  <button type="button" id="test-button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editPlantModal">
-    Launch demo modal
-  </button>
-
   <!-- Modal -->
   <div class="modal fade" id="editPlantModal" tabindex="-1" aria-labelledby="editPlantModalLabel"
     aria-hidden="true">
@@ -21,10 +16,7 @@
             <div class="mb-3">
               <label for="plantCountry" class="form-label">País</label>
               <select required class="form-select" formControlName="plantCountry" id="plantCountry" aria-label="Choose a country">
-                <option value="" disabled selected hidden>Seleccione país</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option [value]="toEditPlant().countryCode" disabled selected hidden><span class="fi fi-{{toEditPlant().countryCode}}"></span> {{toEditPlant().country}}</option>
               </select>
             </div>
             <div class="mb-3">

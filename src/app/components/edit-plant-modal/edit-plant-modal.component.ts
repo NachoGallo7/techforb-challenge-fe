@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, signal, Signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { PlantDTO } from '../../models/plants';
 
 @Component({
   selector: 'tc-edit-plant-modal',
@@ -10,6 +11,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class EditPlantModalComponent implements OnInit{
 
+  @Input() toEditPlant!: Signal<PlantDTO>;
   editPlantForm: FormGroup = {} as FormGroup;
   modalElement: HTMLElement|null = null;
 
@@ -17,19 +19,29 @@ export class EditPlantModalComponent implements OnInit{
 
   ngOnInit(): void {
     this.editPlantForm = this.formBuilder.group({
-      plantName: [''],
+      plantName: [this.toEditPlant().country],
       plantCountry: [''],
-      plantOkReadings: [''],
+      plantOkReadings: [this.toEditPlant().readings],
       plantDisabledReadings: [''],
       plantWarningReadings: [''],
       plantErrorReadings: [''],
     });
     this.plantName?.disable();
     this.plantCountry?.disable();
+
     this.modalElement = document.getElementById("editPlantModal");
     this.modalElement?.addEventListener('show.bs.modal', event => {
       this.editPlantForm.reset();
       this.plantCountry?.setValue('');
+    });
+    this.modalElement?.addEventListener('shown.bs.modal', event => {
+      console.log("ABRIO MODAL: ", this.toEditPlant());
+      this.plantName?.setValue(this.toEditPlant().name);
+      this.plantCountry?.setValue(this.toEditPlant().countryCode);
+      this.plantOkReadings?.setValue(this.toEditPlant().readings);
+      this.plantDisabledReadings?.setValue(this.toEditPlant().disabledSensors);
+      this.plantWarningReadings?.setValue(this.toEditPlant().warnings);
+      this.plantErrorReadings?.setValue(this.toEditPlant().alerts);
     });
   }
 

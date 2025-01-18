@@ -34,7 +34,7 @@ input::placeholder, #plantCountry:invalid{
 #plantCountry option{
   color: black;
 }
-#plantCountry:disabled option, .form-select{
+#plantName:disabled, #plantCountry:disabled option, .form-select{
   color: var(--placeholder-subtle-color);
 }
 .cancel-button, .edit-button{
