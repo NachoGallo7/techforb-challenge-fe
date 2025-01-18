@@ -9,11 +9,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AddPlantModalComponent } from '../add-plant-modal/add-plant-modal.component';
+import { EditPlantModalComponent } from "../edit-plant-modal/edit-plant-modal.component";
 
 @Component({
   selector: 'tc-plants-dashboard',
   standalone: true,
-  imports: [GlobalKpiIndicatorComponent, DashboardPlantsTableComponent, DashboardPerPlantDetailComponent, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, MatDialogModule, AddPlantModalComponent],
+  imports: [GlobalKpiIndicatorComponent, DashboardPlantsTableComponent, DashboardPerPlantDetailComponent, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, MatDialogModule, AddPlantModalComponent, EditPlantModalComponent],
   templateUrl: './plants-dashboard.component.html',
   styleUrl: './plants-dashboard.component.css'
 })

@@ -1,5 +1,9 @@
 
 /* CREATE PLANT MODAL */
+.modal-dialog{
+  width: 40vw;
+  max-width: none;
+}
 .modal-content{
   padding: 1rem 2.5rem 2rem;
   gap: .5rem;
@@ -20,10 +24,10 @@
   /* padding: 0rem 1rem 2rem; */
   gap: 1rem;
 }
-#plant-name-input::placeholder, #plant-country-select:invalid{
+#plantName::placeholder, #plantCountry:invalid{
   color: var(--placeholder-subtle-color);
 }
-#plant-country-select option{
+#plantCountry option{
   color: black;
 }
 .cancel-button, .create-button{
