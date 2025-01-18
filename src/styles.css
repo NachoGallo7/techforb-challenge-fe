@@ -4,6 +4,7 @@
 :root{
   /* GENERAL */
   --primary-color: #33A3AA;
+  --placeholder-subtle-color: #BABEC5;
   /* DASHBOARD */
   --dashboard-bg-color: #E9F1F4;
   --kpi-bg-color-ok: #EBF8F9;

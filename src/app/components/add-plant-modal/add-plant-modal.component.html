@@ -1,0 +1,52 @@
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+  <!-- <div class="modal-dialog"> -->
+    <!-- <div class="modal-content"> -->
+      <!-- <div class="modal-header"> -->
+        <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> -->
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      <!-- </div> -->
+      <!-- <div class="modal-body"> -->
+        <!-- ... -->
+      <!-- </div> -->
+      <!-- <div class="modal-footer"> -->
+        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+<!-- </div> -->
+
+<button type="button" id="test-button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createPlantModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="createPlantModal" tabindex="-1" aria-labelledby="createPlantModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="createPlantModalLabel">Crear nueva planta</h2>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="plant-name" class="form-label">Nombre planta</label>
+          <input type="text" class="form-control" id="plant-name-input" placeholder="Ingrese nombre">
+        </div>
+        <div class="mb-3">
+          <label for="plant-country-select" class="form-label">País</label>
+          <select required class="form-select" id="plant-country-select" aria-label="Choose a country">
+            <!-- <option selected>Open this select menu</option> -->
+            <option value="" disabled selected hidden>Seleccione país</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn cancel-button" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn create-button">Crear</button>
+      </div>
+    </div>
+  </div>
+</div>
