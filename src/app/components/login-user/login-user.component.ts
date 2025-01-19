@@ -1,7 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, signal } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -43,8 +43,12 @@ export class LoginUserComponent implements OnInit{
   
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      email: [],
-      password: []
+      email: ['', [
+        Validators.required, Validators.email
+      ]],
+      password: ['', [
+        Validators.required, Validators.minLength(9)
+      ]]
     });
 
     this.breakpointObserver.observe([Breakpoints.XLarge, Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small, Breakpoints.Handset]).subscribe(result => {
@@ -84,6 +88,13 @@ export class LoginUserComponent implements OnInit{
 
   submit(): void {
     this.userService.login(this.email?.value, this.password?.value).subscribe({
+      error: (err) => {
+        if (err.error.message && err.error.message === "Bad credentials") {
+          alert("Credenciales incorrectas, intente de nuevo")
+        } else {
+          alert("El servidor está experimentando inconvenientes. Por favor, intente de nuevo más tarde")
+        }
+      },
       next: (response => {
         this.tokenService.setToken((response as TokenDTO).token);
         console.log("RETURNED TOKEN: ");

@@ -113,6 +113,9 @@ export class RegisterUserComponent implements OnInit{
 
   submit(): void {
     this.userService.register(this.username?.value, this.email?.value, this.password?.value).subscribe({
+      error: (err) => {
+        alert("El servidor está experimentando inconvenientes. Por favor, intente de nuevo más tarde")
+      },
       complete: () => this.router.navigate(['/login'])
     });
   }
