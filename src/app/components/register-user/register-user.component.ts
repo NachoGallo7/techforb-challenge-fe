@@ -1,19 +1,19 @@
 import { Component, OnInit, Signal, signal } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatError, MatFormFieldModule } from '@angular/material/form-field';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 
 @Component({
   selector: 'tc-register-user',
   standalone: true,
-  imports: [ReactiveFormsModule, MatInputModule, MatIconModule, MatButtonModule, MatFormFieldModule, CommonModule, RouterModule],
+  imports: [ReactiveFormsModule, MatInputModule, MatIconModule, MatButtonModule, MatFormFieldModule, CommonModule, RouterModule, MatError],
   templateUrl: './register-user.component.html',
   styleUrl: './register-user.component.css'
 })
@@ -31,7 +31,8 @@ export class RegisterUserComponent implements OnInit{
 
   constructor(private formBuilder: FormBuilder, 
     private breakpointObserver: BreakpointObserver,
-    private userService: UserService) {}
+    private userService: UserService,
+    private router: Router) {}
   
   registerForm!: FormGroup;
   hidePasswordSignal = signal(false);
@@ -39,10 +40,20 @@ export class RegisterUserComponent implements OnInit{
   
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      username: [],
-      email: [],
-      password: [],
-      confirmationPassword: []
+      username: ['', [
+        Validators.required
+      ]],
+      email: ['', [
+        Validators.required, Validators.email
+      ]],
+      password: ['', [
+        Validators.required, Validators.minLength(9)
+      ]],
+      confirmationPassword: ['',  [
+        Validators.required, Validators.minLength(9)
+      ]]
+    }, {
+      validators: this.passwordMatchValidator('password', 'confirmationPassword')
     });
 
     this.breakpointObserver.observe([Breakpoints.XLarge, Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small, Breakpoints.Handset]).subscribe(result => {
@@ -69,6 +80,26 @@ export class RegisterUserComponent implements OnInit{
       }
     })
   }
+
+  passwordMatchValidator(password: string, confirmationPassword: string): ValidatorFn {
+    return (abstractControl: AbstractControl) => {
+        const control = abstractControl.get(password);
+        const matchingControl = abstractControl.get(confirmationPassword);
+
+        if (matchingControl!.errors && !matchingControl!.errors?.['confirmedValidator']) {
+            return null;
+        }
+
+        if (control!.value !== matchingControl!.value) {
+          const error = { confirmedValidator: 'Passwords do not match.' };
+          matchingControl!.setErrors(error);
+          return error;
+        } else {
+          matchingControl!.setErrors(null);
+          return null;
+        }
+    }
+  }
   
   hidePassword(event: MouseEvent) {
     this.hidePasswordSignal.set(!this.hidePasswordSignal());
@@ -81,7 +112,9 @@ export class RegisterUserComponent implements OnInit{
   }
 
   submit(): void {
-    this.userService.register(this.username?.value, this.email?.value, this.password?.value).subscribe(response => console.log(response));
+    this.userService.register(this.username?.value, this.email?.value, this.password?.value).subscribe({
+      complete: () => this.router.navigate(['/login'])
+    });
   }
 
   get Breakpoints() {

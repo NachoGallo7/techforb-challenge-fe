@@ -47,11 +47,25 @@
       <mat-form-field appearance="outline">
         <mat-label>Usuario</mat-label>
         <input matInput name="username" id="username" formControlName="username">
+        @if (username?.hasError('required')) {
+          <mat-error>
+            <strong>Ingrese un nombre de usuario</strong>
+          </mat-error>
+        }
       </mat-form-field>
       <!-- EMAIL -->
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput name="email" id="email" formControlName="email">
+        @if (email?.hasError('required')) {
+          <mat-error>
+            <strong>Ingrese un email</strong>
+          </mat-error>
+        } @else if (email?.hasError('email')) {
+          <mat-error>
+            <strong>El formato del email ingresado no es correcto</strong>
+          </mat-error>
+        }
       </mat-form-field>
       <!-- PASSWORD -->
       <mat-form-field appearance="outline">
@@ -62,6 +76,15 @@
           [attr.aria-pressed]="hidePasswordSignal()">
           <mat-icon>{{hidePasswordSignal() ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+        @if (password?.hasError('required')) {
+          <mat-error>
+            <strong>Ingrese una contraseña</strong>
+          </mat-error>
+        } @else if (password?.hasError('minlength')) {
+          <mat-error>
+            <strong>La contraseña debe tener 9 o más caracteres</strong>
+          </mat-error>
+        }
       </mat-form-field>
       <!-- PASSWORD CONFIRMATION -->
       <mat-form-field appearance="outline">
@@ -72,10 +95,23 @@
         [attr.aria-pressed]="hideConfirmationPasswordSignal()">
           <mat-icon>{{hideConfirmationPasswordSignal() ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+        @if (confirmationPassword?.hasError('required')) {
+          <mat-error>
+            <strong>Ingrese una contraseña</strong>
+          </mat-error>
+        } @else if (confirmationPassword?.hasError('minlength')) {
+          <mat-error>
+            <strong>La contraseña debe tener 9 o más caracteres</strong>
+          </mat-error>
+        } @else if (confirmationPassword?.hasError('confirmedValidator')) {
+          <mat-error>
+            <strong>Las contraseñas no coinciden</strong>
+          </mat-error>
+        }
       </mat-form-field>
       <div class="button-container">
         <small class="password-indications" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">- Al menos 8 caracteres<br>- Al menos 1 número<br>- Al menos 1 caracter especial</small>
-        <button class="btn submit-button" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}" type="submit">Registrarse</button>
+        <button class="btn submit-button" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}" [disabled]="registerForm.invalid" type="submit">Registrarse</button>
       </div>
       <small class="terms-service" [ngClass]="{'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">
         Protegido por reCAPTCHA y sujeto a la <a href="https://techforb.com/es/techforb-ar" target="_blank" rel="noopener">Política de Privacidad</a> y <a href="https://techforb.com/es/techforb-ar" target="_blank" rel="noopener">Condiciones</a>.
