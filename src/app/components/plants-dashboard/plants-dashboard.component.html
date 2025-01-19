@@ -31,7 +31,7 @@
     <tc-dashboard-plants-table class="plants-table" [plants]="plants" (selectedPlantEmitter)="selectPlant($event)"></tc-dashboard-plants-table>
   </div>
   <div class="per-plant-section">
-    <tc-dashboard-per-plant-detail [selectedPlant]="selectedPlant()"></tc-dashboard-per-plant-detail>
+    <tc-dashboard-per-plant-detail [selectedPlant$]="selectedPlant$"></tc-dashboard-per-plant-detail>
   </div>
   
 </div>

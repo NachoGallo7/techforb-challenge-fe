@@ -7,56 +7,57 @@ import { AddPlantModalComponent } from '../add-plant-modal/add-plant-modal.compo
 import { EditPlantModalComponent } from "../edit-plant-modal/edit-plant-modal.component";
 import { PlantService } from '../../services/plant.service';
 import { PlantDTO } from '../../models/plants';
-import { Page } from '../../models/pages';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'tc-plants-dashboard',
   standalone: true,
-  imports: [GlobalKpiIndicatorComponent, DashboardPlantsTableComponent, DashboardPerPlantDetailComponent, AddPlantModalComponent, EditPlantModalComponent],
+  imports: [GlobalKpiIndicatorComponent, DashboardPlantsTableComponent, DashboardPerPlantDetailComponent, AddPlantModalComponent, DashboardPerPlantDetailComponent],
   templateUrl: './plants-dashboard.component.html',
   styleUrl: './plants-dashboard.component.css'
 })
 export class PlantsDashboardComponent implements OnInit{
 
   plants: PlantDTO[] = [];
-  selectedPlant: WritableSignal<PlantDTO|undefined> = signal(undefined);
-  globalReadings = signal(0);
-  globalWarning = signal(0);
-  globalAlerts = signal(0);
-  globalDisabledSensors = signal(0);
+  private selectedPlant = new BehaviorSubject<PlantDTO|undefined>(undefined);
+  selectedPlant$ = this.selectedPlant.asObservable();
+  // selectedPlant: WritableSignal<PlantDTO|undefined> = signal(undefined);
+  globalReadings: WritableSignal<number|undefined> = signal(undefined);
+  globalWarning: WritableSignal<number|undefined> = signal(undefined);
+  globalAlerts: WritableSignal<number|undefined> = signal(undefined);
+  globalDisabledSensors: WritableSignal<number|undefined> = signal(undefined);
 
   constructor(private plantService: PlantService){}
 
   ngOnInit(): void {
-    this.plantService.getAll().subscribe({
-      next: result => {
-        this.plants = (result as Page<PlantDTO>).content;
-        this.resetGlobalReadings();
+    this.plantService.plants$.subscribe({
+      next: (result: PlantDTO[]) => {
+        this.plants = result;
         this.updateGlobalReadings();
-        console.log("RECEIVED PLANTS");
-        console.log(this.plants);
       }
     });
+    this.plantService.fetchAll();
   }
 
   updateGlobalReadings(): void {
+    this.resetGlobalReadings();
     this.plants.forEach(plant => {
-      this.globalReadings.update(value => value + (plant.readings ?? 0));
-      this.globalWarning.update(value => value + (plant.warnings ?? 0));
-      this.globalAlerts.update(value => value + (plant.alerts ?? 0));
-      this.globalDisabledSensors.update(value => value + (plant.disabled_sensors ?? 0));
+      this.globalReadings.update(value => (value ?? 0) + (plant.readings ?? 0));
+      this.globalWarning.update(value => (value ?? 0) + (plant.warnings ?? 0));
+      this.globalAlerts.update(value => (value ?? 0) + (plant.alerts ?? 0));
+      this.globalDisabledSensors.update(value => (value ?? 0) + (plant.disabled_sensors ?? 0));
     });
   }
 
   resetGlobalReadings(): void {
-    this.globalReadings.set(0);
-    this.globalWarning.set(0);
-    this.globalAlerts.set(0);
-    this.globalDisabledSensors.set(0);
+    this.globalReadings.set(undefined);
+    this.globalWarning.set(undefined);
+    this.globalAlerts.set(undefined);
+    this.globalDisabledSensors.set(undefined);
   }
 
   selectPlant(plant: PlantDTO): void {
-    this.selectedPlant.set(plant);
+    this.selectedPlant.next(plant);
   }
 
   get globalKpiStates(){

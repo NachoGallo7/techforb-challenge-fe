@@ -7,8 +7,8 @@ export interface PlantDTO {
   warnings?: number;
   alerts?: number;
   disabled_sensors?: number;
-  isActive: boolean;
-  plant_details?: PlantDetailDTO[];
+  is_active: boolean;
+  plant_details: PlantDetailDTO[];
 }
 
 export interface PlantDetailDTO {
@@ -18,6 +18,20 @@ export interface PlantDetailDTO {
   alerts?: number
   disabled_sensors?: number
   plant_detail_type: PlantDetailType
+}
+
+export interface PostPlantDTO {
+  name: string;
+  country: string;
+  country_code: string;
+}
+
+export interface PutPlantDTO {
+  readings: number;
+  warnings: number;
+  alerts: number;
+  disabled_sensors: number;
+  plant_details: PlantDetailDTO[];
 }
 
 export enum PlantDetailType {

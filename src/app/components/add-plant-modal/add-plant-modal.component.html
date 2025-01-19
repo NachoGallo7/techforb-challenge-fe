@@ -17,16 +17,16 @@
               <label for="plantCountry" class="form-label">País</label>
               <select required class="form-select" formControlName="plantCountry" id="plantCountry" aria-label="Choose a country">
                 <option value="" disabled selected hidden>Seleccione país</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Uruguay">Uruguay</option>
               </select>
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn cancel-button" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn create-button" (click)="submit()">Crear</button>
+          <button type="submit" [disabled]="newPlantForm.invalid" class="btn create-button" data-bs-dismiss="modal" (click)="submit()">Crear</button>
         </div>
       </div>
     </div>

@@ -49,7 +49,6 @@ export class DashboardPlantsTableComponent {
   selectPlant(plant: PlantDTO): void {
     this.selectedPlantEmitter.emit(plant);
     this.selectedPlant = plant;
-    console.log(this.selectedPlant);
   }
 
   get globalKpiStyles() {
