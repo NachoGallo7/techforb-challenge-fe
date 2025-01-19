@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class GlobalKpiIndicatorComponent {
   @Input() title!: string;
-  @Input() value!: string;
+  @Input() value!: number;
   @Input() style!: GlobalKpiStyles;
 
   get globalKpiStates() {

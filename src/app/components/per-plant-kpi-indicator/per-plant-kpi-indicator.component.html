@@ -2,9 +2,9 @@
   <div class="info-section">
     <small class="title">{{title}}</small>
     <div class="values-holder">
-      <div class="icon-value"><tc-small-readings-style-icon class="icon" [iconStyle]="globalKpiStyles.ok"></tc-small-readings-style-icon><p class="value">{{okReadings}}</p></div>
-      <div class="icon-value"><tc-small-readings-style-icon class="icon" [iconStyle]="globalKpiStyles.warning"></tc-small-readings-style-icon><p class="value">{{warningReadings}}</p></div>
-      <div class="icon-value"><tc-small-readings-style-icon class="icon" [iconStyle]="globalKpiStyles.error"></tc-small-readings-style-icon><p class="value">{{errorReadings}}</p></div>
+      <div class="icon-value"><tc-small-readings-style-icon class="icon" [iconStyle]="globalKpiStyles.ok"></tc-small-readings-style-icon><p class="value">{{okReadings ?? '-'}}</p></div>
+      <div class="icon-value"><tc-small-readings-style-icon class="icon" [iconStyle]="globalKpiStyles.warning"></tc-small-readings-style-icon><p class="value">{{warningReadings ?? '-'}}</p></div>
+      <div class="icon-value"><tc-small-readings-style-icon class="icon" [iconStyle]="globalKpiStyles.error"></tc-small-readings-style-icon><p class="value">{{errorReadings ?? '-'}}</p></div>
     </div>
   </div>
   <div class="icon-holder {{perPlantKpiStyles[style]}}">

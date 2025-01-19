@@ -45,10 +45,11 @@
   .table .table-body td:last-child{
     border-radius: 0 8px 8px 0;
   }
-  .table .table-body tr:hover{
+  .table .table-body tr.active{
     background: var(--table-row-hover-color);
   }
-  .table .table-body tr:hover td:nth-child(1), .table .table-body tr:hover td:nth-child(2){
+  .table .table-body tr.active td:nth-child(1), .table .table-body tr.active td:nth-child(2){
     color: var(--primary-color);
     font-weight: 500;
   }
+  

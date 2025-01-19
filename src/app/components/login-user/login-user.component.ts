@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { UserService } from '../../services/user.service';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterModule } from '@angular/router';
 import { TokenService } from '../../services/token.service';
 import { TokenDTO } from '../../models/user';
 import { PlantService } from '../../services/plant.service';
@@ -35,7 +35,7 @@ export class LoginUserComponent implements OnInit{
     private breakpointObserver: BreakpointObserver,
     private userService: UserService,
     private tokenService: TokenService,
-    private plantService: PlantService) {}
+    private router: Router) {}
   
   registerForm!: FormGroup;
   hidePasswordSignal = signal(false);
@@ -47,7 +47,7 @@ export class LoginUserComponent implements OnInit{
       password: []
     });
 
-    setTimeout(() => console.log("CURRENT BREAKPOINT LEVEL: ", this.breakpointLevel()), 5000);
+    // setTimeout(() => console.log("CURRENT BREAKPOINT LEVEL: ", this.breakpointLevel()), 5000);
 
     this.breakpointObserver.observe([Breakpoints.XLarge, Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small, Breakpoints.Handset]).subscribe(result => {
       if(result.breakpoints[Breakpoints.XLarge]) {
@@ -85,10 +85,14 @@ export class LoginUserComponent implements OnInit{
   }
 
   submit(): void {
-    // this.userService.login(this.email?.value, this.password?.value).subscribe({
-    //   next: (response => this.tokenService.setToken((response as TokenDTO).token))
-    // });
-    this.plantService.getAll().subscribe(response => console.log(response));
+    this.userService.login(this.email?.value, this.password?.value).subscribe({
+      next: (response => {
+        this.tokenService.setToken((response as TokenDTO).token);
+        console.log("RETURNED TOKEN: ");
+        console.log((response as TokenDTO).token);
+        this.router.navigate(["/dashboard"]);
+      })
+    });
   }
 
   get Breakpoints() {

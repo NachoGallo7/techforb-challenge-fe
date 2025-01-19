@@ -16,7 +16,7 @@
             <div class="mb-3">
               <label for="plantCountry" class="form-label">País</label>
               <select required class="form-select" formControlName="plantCountry" id="plantCountry" aria-label="Choose a country">
-                <option [value]="toEditPlant().countryCode" disabled selected hidden><span class="fi fi-{{toEditPlant().countryCode}}"></span> {{toEditPlant().country}}</option>
+                <option [value]="toEditPlant().country_code" disabled selected hidden><span class="fi fi-{{toEditPlant().country_code}}"></span> {{toEditPlant().country}}</option>
               </select>
             </div>
             <div class="mb-3">

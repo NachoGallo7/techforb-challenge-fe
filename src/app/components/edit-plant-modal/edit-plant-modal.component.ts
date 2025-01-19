@@ -35,11 +35,10 @@ export class EditPlantModalComponent implements OnInit{
       this.plantCountry?.setValue('');
     });
     this.modalElement?.addEventListener('shown.bs.modal', event => {
-      console.log("ABRIO MODAL: ", this.toEditPlant());
       this.plantName?.setValue(this.toEditPlant().name);
-      this.plantCountry?.setValue(this.toEditPlant().countryCode);
+      this.plantCountry?.setValue(this.toEditPlant().country_code);
       this.plantOkReadings?.setValue(this.toEditPlant().readings);
-      this.plantDisabledReadings?.setValue(this.toEditPlant().disabledSensors);
+      this.plantDisabledReadings?.setValue(this.toEditPlant().disabled_sensors);
       this.plantWarningReadings?.setValue(this.toEditPlant().warnings);
       this.plantErrorReadings?.setValue(this.toEditPlant().alerts);
     });

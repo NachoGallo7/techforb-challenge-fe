@@ -17,9 +17,9 @@
     </thead>
     <tbody class="table-body">
       @for (plant of plants; track plant.id) {
-        <tr>
-          <td scope="row"><span class="fi fi-{{plant.countryCode}}"></span> {{plant.country}}</td>
-          <td >{{plant.name}}</td>
+        <tr (click)="selectPlant(plant)" [ngClass]="{'active': plant.id == selectedPlant?.id}">
+          <td scope="row"><span class="fi fi-{{plant.country_code}}"></span> {{plant.country}}</td>
+          <td>{{plant.name}}</td>
           <td>{{plant.readings}}</td>
           <td>{{plant.warnings}}</td>
           <td>{{plant.alerts}}</td>

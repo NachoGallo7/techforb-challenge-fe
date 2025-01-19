@@ -12,9 +12,9 @@ import { SmallReadingsStyleIconComponent } from "../small-readings-style-icon/sm
 })
 export class PerPlantKpiIndicatorComponent {
   @Input() title!: string;
-  @Input() okReadings!: string;
-  @Input() warningReadings!: string;
-  @Input() errorReadings!: string;
+  @Input() okReadings?: number;
+  @Input() warningReadings?: number;
+  @Input() errorReadings?: number;
   @Input() style!: PerPlantKpiStyles;
 
   get perPlantKpiStyles() {

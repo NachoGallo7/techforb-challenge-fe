@@ -22,16 +22,16 @@
     </div>
   </div>
   <div class="kpis-section">
-      <tc-global-kpi-indicator class="kpi-component" title="Lecturas OK" value="1234" [style]="globalKpiStates.ok"></tc-global-kpi-indicator>
-      <tc-global-kpi-indicator class="kpi-component" title="Alertas medias" value="123" [style]="globalKpiStates.warning"></tc-global-kpi-indicator>
-      <tc-global-kpi-indicator class="kpi-component" title="Alertas rojas" value="99" [style]="globalKpiStates.error"></tc-global-kpi-indicator>
-      <tc-global-kpi-indicator class="kpi-component" title="Sensores deshabilitados" value="465" [style]="globalKpiStates.disabled"></tc-global-kpi-indicator>
+      <tc-global-kpi-indicator class="kpi-component" title="Lecturas OK" [value]="globalReadings()" [style]="globalKpiStates.ok"></tc-global-kpi-indicator>
+      <tc-global-kpi-indicator class="kpi-component" title="Alertas medias" [value]="globalWarning()" [style]="globalKpiStates.warning"></tc-global-kpi-indicator>
+      <tc-global-kpi-indicator class="kpi-component" title="Alertas rojas" [value]="globalAlerts()" [style]="globalKpiStates.error"></tc-global-kpi-indicator>
+      <tc-global-kpi-indicator class="kpi-component" title="Sensores deshabilitados" [value]="globalDisabledSensors()" [style]="globalKpiStates.disabled"></tc-global-kpi-indicator>
   </div>
   <div class="table-section">
-    <tc-dashboard-plants-table class="plants-table"></tc-dashboard-plants-table>
+    <tc-dashboard-plants-table class="plants-table" [plants]="plants" (selectedPlantEmitter)="selectPlant($event)"></tc-dashboard-plants-table>
   </div>
   <div class="per-plant-section">
-    <tc-dashboard-per-plant-detail></tc-dashboard-per-plant-detail>
+    <tc-dashboard-per-plant-detail [selectedPlant]="selectedPlant()"></tc-dashboard-per-plant-detail>
   </div>
   
 </div>

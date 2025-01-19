@@ -45,8 +45,6 @@ export class RegisterUserComponent implements OnInit{
       confirmationPassword: []
     });
 
-    setTimeout(() => console.log("CURRENT BREAKPOINT LEVEL: ", this.breakpointLevel()), 5000);
-
     this.breakpointObserver.observe([Breakpoints.XLarge, Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small, Breakpoints.Handset]).subscribe(result => {
       if(result.breakpoints[Breakpoints.XLarge]) {
         // X-LARGE

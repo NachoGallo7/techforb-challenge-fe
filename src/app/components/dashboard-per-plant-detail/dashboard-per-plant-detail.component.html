@@ -2,18 +2,54 @@
   <div class="header-section">
     <h3 class="title">Monitoreo por plantas</h3>
     <div class="subtitle-holder">
-      <span class="fi fi-{{currentPlant?.countryCode}}"></span><p class="subtitle"> {{currentPlant?.country}},
-        {{currentPlant?.name}}</p>
+      @if (selectedPlant != undefined) {
+        <span class="fi fi-{{selectedPlant.country_code}}"></span><p class="subtitle"> {{selectedPlant.country}},
+          {{selectedPlant.name}}</p>
+      } @else {
+        <p class="subtitle">Seleccione una planta</p>
+      }
     </div>
   </div>
   <div class="kpis-section">
-    <tc-per-plant-kpi-indicator class="kpi-component" title="Temperatura" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.temperature"></tc-per-plant-kpi-indicator>
-    <tc-per-plant-kpi-indicator class="kpi-component" title="Presión" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.pressure"></tc-per-plant-kpi-indicator>
-    <tc-per-plant-kpi-indicator class="kpi-component" title="Viento" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.wind"></tc-per-plant-kpi-indicator>
-    <tc-per-plant-kpi-indicator class="kpi-component" title="Niveles" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.levels"></tc-per-plant-kpi-indicator>
-    <tc-per-plant-kpi-indicator class="kpi-component" title="Energía" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.energy"></tc-per-plant-kpi-indicator>
-    <tc-per-plant-kpi-indicator class="kpi-component" title="Tensión" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.tension"></tc-per-plant-kpi-indicator>
-    <tc-per-plant-kpi-indicator class="kpi-component" title="Monóxido de carbono" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.carbonMonoxide"></tc-per-plant-kpi-indicator>
-    <tc-per-plant-kpi-indicator class="kpi-component" title="Otros gases" okReadings="100" warningReadings="50" errorReadings="25" [style]="perPlantKpiStyles.otherGasses"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Temperatura"
+      [okReadings]="filterPlantDetails(selectedPlant, plantDetailType.TEMPERATURE)?.readings"
+      [warningReadings]="filterPlantDetails(selectedPlant, plantDetailType.TEMPERATURE)?.warnings"
+      [errorReadings]="filterPlantDetails(selectedPlant, plantDetailType.TEMPERATURE)?.alerts"
+      [style]="perPlantKpiStyles.temperature"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Presión"
+      [okReadings]="filterPlantDetails(selectedPlant, plantDetailType.PRESSURE)?.readings"
+      [warningReadings]="filterPlantDetails(selectedPlant, plantDetailType.PRESSURE)?.warnings"
+      [errorReadings]="filterPlantDetails(selectedPlant, plantDetailType.PRESSURE)?.alerts"
+      [style]="perPlantKpiStyles.pressure"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Viento"
+      [okReadings]="filterPlantDetails(selectedPlant, plantDetailType.WIND)?.readings"
+      [warningReadings]="filterPlantDetails(selectedPlant, plantDetailType.WIND)?.warnings"
+      [errorReadings]="filterPlantDetails(selectedPlant, plantDetailType.WIND)?.alerts"
+      [style]="perPlantKpiStyles.wind"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Niveles"
+      [okReadings]="filterPlantDetails(selectedPlant, plantDetailType.LEVELS)?.readings"
+      [warningReadings]="filterPlantDetails(selectedPlant, plantDetailType.LEVELS)?.warnings"
+      [errorReadings]="filterPlantDetails(selectedPlant, plantDetailType.LEVELS)?.alerts"
+      [style]="perPlantKpiStyles.levels"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Energía"
+      [okReadings]="filterPlantDetails(selectedPlant, plantDetailType.ENERGY)?.readings"
+      [warningReadings]="filterPlantDetails(selectedPlant, plantDetailType.ENERGY)?.warnings"
+      [errorReadings]="filterPlantDetails(selectedPlant, plantDetailType.ENERGY)?.alerts"
+      [style]="perPlantKpiStyles.energy"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Tensión"
+      [okReadings]="filterPlantDetails(selectedPlant, plantDetailType.TENSION)?.readings"
+      [warningReadings]="filterPlantDetails(selectedPlant, plantDetailType.TENSION)?.warnings"
+      [errorReadings]="filterPlantDetails(selectedPlant, plantDetailType.TENSION)?.alerts"
+      [style]="perPlantKpiStyles.tension"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Monóxido de carbono"
+      [okReadings]="filterPlantDetails(selectedPlant, plantDetailType.CARBON_MONOXIDE)?.readings"
+      [warningReadings]="filterPlantDetails(selectedPlant, plantDetailType.CARBON_MONOXIDE)?.warnings"
+      [errorReadings]="filterPlantDetails(selectedPlant, plantDetailType.CARBON_MONOXIDE)?.alerts"
+      [style]="perPlantKpiStyles.carbonMonoxide"></tc-per-plant-kpi-indicator>
+    <tc-per-plant-kpi-indicator class="kpi-component" title="Otros gases"
+      [okReadings]="filterPlantDetails(selectedPlant, plantDetailType.OTHER_GASSES)?.readings"
+      [warningReadings]="filterPlantDetails(selectedPlant, plantDetailType.OTHER_GASSES)?.warnings"
+      [errorReadings]="filterPlantDetails(selectedPlant, plantDetailType.OTHER_GASSES)?.alerts"
+      [style]="perPlantKpiStyles.otherGasses"></tc-per-plant-kpi-indicator>
   </div>
 </div>

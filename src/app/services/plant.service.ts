@@ -13,8 +13,8 @@ export class PlantService {
     private tokenService: TokenService) { }
 
   getAll() {
-    const httpHeaders: HttpHeaders = new HttpHeaders();
-    httpHeaders.set("Authorization", "Bearer " + this.tokenService.getToken());
+    let httpHeaders: HttpHeaders = new HttpHeaders();
+    httpHeaders = httpHeaders.set("Authorization", "Bearer " + this.tokenService.getToken());
     return this.httpClient.get(this.baseUrl, {headers: httpHeaders});
   }
 }
