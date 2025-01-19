@@ -10,17 +10,23 @@
         <div class="modal-body">
           <form class="new-plant-form" [formGroup]="newPlantForm">
             <div class="mb-3">
-              <label for="plantName" class="form-label">Nombre planta</label>
-              <input type="text" class="form-control" formControlName="plantName" id="plantName" placeholder="Ingrese nombre">
+              <label [ngClass]="{'error': plantName.touched && plantName.hasError('required')}" for="plantName" class="form-label">Nombre planta</label>
+              <input [ngClass]="{'error': plantName.touched && plantName.hasError('required')}" type="text" class="form-control" formControlName="plantName" id="plantName" placeholder="Ingrese nombre">
+              @if (plantName.touched && plantName.hasError('required')) {
+                <small class="error-hint">Ingrese un nombre</small>
+              }
             </div>
             <div class="mb-3">
-              <label for="plantCountry" class="form-label">País</label>
-              <select required class="form-select" formControlName="plantCountry" id="plantCountry" aria-label="Choose a country">
+              <label [ngClass]="{'error': plantCountry.touched && plantCountry.hasError('required')}" for="plantCountry" class="form-label">País</label>
+              <select [ngClass]="{'error': plantCountry.touched && plantCountry.hasError('required')}" required class="form-select" formControlName="plantCountry" id="plantCountry" aria-label="Choose a country">
                 <option value="" disabled selected hidden>Seleccione país</option>
                 <option value="Argentina">Argentina</option>
                 <option value="Brasil">Brasil</option>
                 <option value="Uruguay">Uruguay</option>
               </select>
+              @if (plantCountry.touched && plantCountry.hasError('required')) {
+                <small class="error-hint">Seleccione un país</small>
+              }
             </div>
           </form>
         </div>

@@ -5,6 +5,7 @@
   /* GENERAL */
   --primary-color: #33A3AA;
   --placeholder-subtle-color: #BABEC5;
+  --error-hint-text-color: #ba1a1a;
   /* DASHBOARD */
   --dashboard-bg-color: #E9F1F4;
   --kpi-bg-color-ok: #EBF8F9;
