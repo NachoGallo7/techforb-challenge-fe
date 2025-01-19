@@ -34,6 +34,12 @@ span.fi{
   border-radius: 3px;
 }
 
+.error-hint{
+  color: var(--error-hint-text-color);
+  font-weight: bolder;
+  font-size: .75rem;
+}
+
 /* TC REGISTER USER COMPONENT */
 mat-form-field .mdc-text-field--outlined {
   --mdc-outlined-text-field-container-shape: 16px !important;

@@ -20,26 +20,46 @@
               </select>
             </div>
             <div class="mb-3">
-              <label for="plantOkReadings" class="form-label">Cantidad de lecturas</label>
-              <input type="number" class="form-control" formControlName="plantOkReadings" id="plantOkReadings" placeholder="Ingrese">
+              <label [ngClass]="{'error': plantOkReadings.touched && plantOkReadings.invalid}" for="plantOkReadings" class="form-label">Cantidad de lecturas</label>
+              <input [ngClass]="{'error': plantOkReadings.touched && plantOkReadings.invalid}" type="number" class="form-control" formControlName="plantOkReadings" id="plantOkReadings" placeholder="Ingrese">
+              @if (plantOkReadings.touched && plantOkReadings.hasError('required')) {
+                <small class="error-hint">Ingrese una cantidad de lecturas ok</small>
+              } @else if (plantOkReadings.touched && plantOkReadings.hasError('min')) {
+                <small class="error-hint">El valor debe ser 0 o mas</small>
+              }
             </div>
             <div class="mb-3">
-              <label for="plantDisabledReadings" class="form-label">Cantidad de lecturas</label>
-              <input type="number" class="form-control" formControlName="plantDisabledReadings" id="plantDisabledReadings" placeholder="Ingrese">
+              <label [ngClass]="{'error': plantDisabledReadings.touched && plantDisabledReadings.invalid}" for="plantDisabledReadings" class="form-label">Cantidad de lecturas</label>
+              <input [ngClass]="{'error': plantDisabledReadings.touched && plantDisabledReadings.invalid}" type="number" class="form-control" formControlName="plantDisabledReadings" id="plantDisabledReadings" placeholder="Ingrese">
+              @if (plantDisabledReadings.touched && plantDisabledReadings.hasError('required')) {
+                <small class="error-hint">Ingrese una cantidad de sensores deshabilitados</small>
+              } @else if (plantDisabledReadings.touched && plantDisabledReadings.hasError('min')) {
+                <small class="error-hint">El valor debe ser 0 o mas</small>
+              }
             </div>
             <div class="mb-3">
-              <label for="plantWarningReadings" class="form-label">Alertas medias</label>
-              <input type="number" class="form-control" formControlName="plantWarningReadings" id="plantWarningReadings" placeholder="Ingrese">
+              <label [ngClass]="{'error': plantWarningReadings.touched && plantWarningReadings.invalid}" for="plantWarningReadings" class="form-label">Alertas medias</label>
+              <input [ngClass]="{'error': plantWarningReadings.touched && plantWarningReadings.invalid}" type="number" class="form-control" formControlName="plantWarningReadings" id="plantWarningReadings" placeholder="Ingrese">
+              @if (plantWarningReadings.touched && plantWarningReadings.hasError('required')) {
+                <small class="error-hint">Ingrese una cantidad de alertas medias</small>
+              } @else if (plantWarningReadings.touched && plantWarningReadings.hasError('min')) {
+                <small class="error-hint">El valor debe ser 0 o mas</small>
+              }
             </div>
             <div class="mb-3">
-              <label for="plantErrorReadings" class="form-label">Alertas rojas</label>
-              <input type="number" class="form-control" formControlName="plantErrorReadings" id="plantErrorReadings" placeholder="Ingrese">
+              <label [ngClass]="{'error': plantErrorReadings.touched && plantErrorReadings.invalid}" for="plantErrorReadings" class="form-label">Alertas rojas</label>
+              <input [ngClass]="{'error': plantErrorReadings.touched && plantErrorReadings.invalid}" type="number" class="form-control" formControlName="plantErrorReadings" id="plantErrorReadings" placeholder="Ingrese">
+              @if (plantErrorReadings.touched && plantErrorReadings.hasError('required')) {
+                <small class="error-hint">Ingrese una cantidad de alertas rojas</small>
+              } @else if (plantErrorReadings.touched && plantErrorReadings.hasError('min')) {
+                <small class="error-hint">El valor debe ser 0 o mas</small>
+              }
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn cancel-button" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn edit-button"  data-bs-dismiss="modal" (click)="submit()">Editar</button>
+          <button type="submit" class="btn edit-button"  data-bs-dismiss="modal" [disabled]="editPlantForm.invalid" (click)="submit()">Editar</button>
         </div>
       </div>
     </div>

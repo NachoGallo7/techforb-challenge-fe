@@ -44,15 +44,6 @@
   background-color: var(--primary-color);
   color: #fff;
 }
-.error-hint{
-  color: var(--error-hint-text-color);
-  margin-left: 1rem;
-  font-weight: bolder;
-  font-size: .75rem;
-}
-.form-label.error{
-  /* color: var(--error-hint-text-color); */
-}
 .form-control.error, .form-select.error{
   border-color: var(--error-hint-text-color);
 }

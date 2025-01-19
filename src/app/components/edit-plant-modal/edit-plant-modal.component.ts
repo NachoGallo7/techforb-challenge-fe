@@ -1,12 +1,13 @@
 import { Component, Input, OnInit, signal, Signal } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PlantDTO, PutPlantDTO } from '../../models/plants';
 import { PlantService } from '../../services/plant.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'tc-edit-plant-modal',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './edit-plant-modal.component.html',
   styleUrl: './edit-plant-modal.component.css'
 })
@@ -22,12 +23,20 @@ export class EditPlantModalComponent implements OnInit{
 
   ngOnInit(): void {
     this.editPlantForm = this.formBuilder.group({
-      plantName: [this.toEditPlant().country],
-      plantCountry: [''],
-      plantOkReadings: [this.toEditPlant().readings],
-      plantDisabledReadings: [''],
-      plantWarningReadings: [''],
-      plantErrorReadings: [''],
+      plantName: [this.toEditPlant().name],
+      plantCountry: [this.toEditPlant().country],
+      plantOkReadings: [this.toEditPlant().readings, [
+        Validators.required, Validators.min(0)
+      ]],
+      plantDisabledReadings: [this.toEditPlant().disabled_sensors, [
+        Validators.required, Validators.min(0)
+      ]],
+      plantWarningReadings: [this.toEditPlant().warnings, [
+        Validators.required, Validators.min(0)
+      ]],
+      plantErrorReadings: [this.toEditPlant().alerts, [
+        Validators.required, Validators.min(0)
+      ]],
     });
     this.plantName.disable();
     this.plantCountry.disable();

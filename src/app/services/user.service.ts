@@ -25,7 +25,7 @@ export class UserService {
   }
 
   logout() {
-    let httpHeaders: HttpHeaders = new HttpHeaders({"Authorization": "Bearer " + this.tokenService.getToken()});
+    const httpHeaders: HttpHeaders = new HttpHeaders({"Authorization": "Bearer " + this.tokenService.getToken()});
     return this.httpClient.get(this.baseUrl + "/logout", {headers: httpHeaders});
   }
 }

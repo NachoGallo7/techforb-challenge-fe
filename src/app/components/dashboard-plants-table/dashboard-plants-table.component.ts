@@ -20,28 +20,6 @@ export class DashboardPlantsTableComponent {
   @Output() selectedPlantEmitter = new EventEmitter<PlantDTO>;
   selectedPlant?: PlantDTO;
 
-  // plants: PlantDTO[] = [{
-  //   id: 1,
-  //   name: "Quilmes",
-  //   country: "Argentina",
-  //   country_code: "ar",
-  //   readings: 800,
-  //   warnings: 160,
-  //   alerts: 24,
-  //   disabled_sensors: 27,
-  //   isActive: true,
-  // }, {
-  //   id: 2,
-  //   name: "Zárate",
-  //   country: "Argentina",
-  //   country_code: "ar",
-  //   readings: 300,
-  //   warnings: 10,
-  //   alerts: 2,
-  //   disabled_sensors: 0,
-  //   isActive: true,
-  // }];
-
   emitToEditPlant(plant: PlantDTO) {
     this.toEditPlant.set(plant);
   }

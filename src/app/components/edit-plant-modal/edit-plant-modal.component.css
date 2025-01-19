@@ -51,3 +51,9 @@ input::placeholder, #plantCountry:invalid{
   background-color: var(--primary-color);
   color: #fff;
 }
+.form-control.error{
+  border-color: var(--error-hint-text-color);
+}
+.form-control.error::placeholder{
+  color: var(--error-hint-text-color) !important;
+}

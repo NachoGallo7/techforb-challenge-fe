@@ -10,19 +10,22 @@
         <div class="modal-body">
           <form class="new-plant-form" [formGroup]="newPlantForm">
             <div class="mb-3">
-              <label [ngClass]="{'error': plantName.touched && plantName.hasError('required')}" for="plantName" class="form-label">Nombre planta</label>
-              <input [ngClass]="{'error': plantName.touched && plantName.hasError('required')}" type="text" class="form-control" formControlName="plantName" id="plantName" placeholder="Ingrese nombre">
+              <label [ngClass]="{'error': plantName.touched && plantName.invalid}" for="plantName" class="form-label">Nombre planta</label>
+              <input [ngClass]="{'error': plantName.touched && plantName.invalid}" type="text" class="form-control" formControlName="plantName" id="plantName" placeholder="Ingrese nombre">
               @if (plantName.touched && plantName.hasError('required')) {
                 <small class="error-hint">Ingrese un nombre</small>
               }
             </div>
             <div class="mb-3">
-              <label [ngClass]="{'error': plantCountry.touched && plantCountry.hasError('required')}" for="plantCountry" class="form-label">País</label>
-              <select [ngClass]="{'error': plantCountry.touched && plantCountry.hasError('required')}" required class="form-select" formControlName="plantCountry" id="plantCountry" aria-label="Choose a country">
+              <label [ngClass]="{'error': plantCountry.touched && plantCountry.invalid}" for="plantCountry" class="form-label">País</label>
+              <select [ngClass]="{'error': plantCountry.touched && plantCountry.invalid}" required class="form-select" formControlName="plantCountry" id="plantCountry" aria-label="Choose a country">
                 <option value="" disabled selected hidden>Seleccione país</option>
-                <option value="Argentina">Argentina</option>
+                @for (country of countries; track country.code) {
+                  <option [ngValue]="country"><span class="fi fi-{{country.code.toLowerCase()}}"></span> {{country.name}}</option>
+                }
+                <!-- <option value="Argentina">Argentina</option>
                 <option value="Brasil">Brasil</option>
-                <option value="Uruguay">Uruguay</option>
+                <option value="Uruguay">Uruguay</option> -->
               </select>
               @if (plantCountry.touched && plantCountry.hasError('required')) {
                 <small class="error-hint">Seleccione un país</small>

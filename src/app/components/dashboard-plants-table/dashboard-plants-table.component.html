@@ -18,7 +18,7 @@
     <tbody class="table-body" [ngClass]="{'empty': plants.length === 0}">
       @for (plant of plants; track plant.id) {
         <tr (click)="selectPlant(plant)" [ngClass]="{'active': plant.id == selectedPlant?.id}">
-          <td scope="row"><span class="fi fi-{{plant.country_code}}"></span> {{plant.country}}</td>
+          <td scope="row"><span class="fi fi-{{plant.country_code.toLowerCase()}}"></span> {{plant.country}}</td>
           <td>{{plant.name}}</td>
           <td>{{plant.readings ?? '-'}}</td>
           <td>{{plant.warnings ?? '-'}}</td>

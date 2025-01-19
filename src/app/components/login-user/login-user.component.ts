@@ -89,7 +89,7 @@ export class LoginUserComponent implements OnInit{
   submit(): void {
     this.userService.login(this.email?.value, this.password?.value).subscribe({
       error: (err) => {
-        if (err.error.message && err.error.message === "Bad credentials") {
+        if ((err.status as number).toString().startsWith("4")) {
           alert("Credenciales incorrectas, intente de nuevo")
         } else {
           alert("El servidor está experimentando inconvenientes. Por favor, intente de nuevo más tarde")
