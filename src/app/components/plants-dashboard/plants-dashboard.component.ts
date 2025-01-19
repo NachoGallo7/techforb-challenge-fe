@@ -41,10 +41,10 @@ export class PlantsDashboardComponent implements OnInit{
 
   updateGlobalReadings(): void {
     this.plants.forEach(plant => {
-      this.globalReadings.update(value => value + plant.readings);
-      this.globalWarning.update(value => value + plant.warnings);
-      this.globalAlerts.update(value => value + plant.alerts);
-      this.globalDisabledSensors.update(value => value + plant.disabled_sensors);
+      this.globalReadings.update(value => value + (plant.readings ?? 0));
+      this.globalWarning.update(value => value + (plant.warnings ?? 0));
+      this.globalAlerts.update(value => value + (plant.alerts ?? 0));
+      this.globalDisabledSensors.update(value => value + (plant.disabled_sensors ?? 0));
     });
   }
 

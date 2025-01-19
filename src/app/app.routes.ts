@@ -12,5 +12,7 @@ export const routes: Routes = [
     path: 'login', loadComponent: () => import('./components/login-user/login-user.component').then(c => c.LoginUserComponent)
   }, {
     path: 'dashboard', component: MainContentComponent
+  }, {
+    path: '**', redirectTo: 'register', pathMatch: "full"
   }
 ];

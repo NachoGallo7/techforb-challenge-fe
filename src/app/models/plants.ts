@@ -3,10 +3,10 @@ export interface PlantDTO {
   name: string;
   country: string;
   country_code: string;
-  readings: number;
-  warnings: number;
-  alerts: number;
-  disabled_sensors: number;
+  readings?: number;
+  warnings?: number;
+  alerts?: number;
+  disabled_sensors?: number;
   isActive: boolean;
   plant_details?: PlantDetailDTO[];
 }
@@ -14,9 +14,9 @@ export interface PlantDTO {
 export interface PlantDetailDTO {
   id: number
   readings: number
-  warnings: number
-  alerts: number
-  disabled_sensors: number
+  warnings?: number
+  alerts?: number
+  disabled_sensors?: number
   plant_detail_type: PlantDetailType
 }
 

@@ -15,14 +15,14 @@
         <th scope="col"><div class="icon-title"><span class="title">Acciones</span></div></th>
       </tr>
     </thead>
-    <tbody class="table-body">
+    <tbody class="table-body" [ngClass]="{'empty': plants.length === 0}">
       @for (plant of plants; track plant.id) {
         <tr (click)="selectPlant(plant)" [ngClass]="{'active': plant.id == selectedPlant?.id}">
           <td scope="row"><span class="fi fi-{{plant.country_code}}"></span> {{plant.country}}</td>
-          <td>{{plant.name}}</td>
-          <td>{{plant.readings}}</td>
-          <td>{{plant.warnings}}</td>
-          <td>{{plant.alerts}}</td>
+          <td>{{plant.name ?? '-'}}</td>
+          <td>{{plant.readings ?? '-'}}</td>
+          <td>{{plant.warnings ?? '-'}}</td>
+          <td>{{plant.alerts ?? '-'}}</td>
           <td class="text-center">
             <div class="dropdown">
               <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
