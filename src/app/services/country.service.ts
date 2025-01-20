@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { TokenService } from './token.service';
 import { CountryDTO } from '../models/country';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CountryService {
 
-  private baseUrl: string = "http://localhost:8080/countries";
+  private baseUrl: string = environment.apis.countries;
   private countries = new BehaviorSubject<CountryDTO[]>([]);
   countries$ = this.countries.asObservable();
 

@@ -2,13 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RegisterUserDTO, SignUserDTO } from '../models/user';
 import { TokenService } from './token.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private baseUrl: string = "http://localhost:8080/users"
+  private baseUrl: string = environment.apis.users;
 
   constructor(private httpClient: HttpClient,
     private tokenService: TokenService
