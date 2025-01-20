@@ -1,6 +1,12 @@
-<div class="component-container">
+<div class="component-container" [ngClass]="{
+  'x-large-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.XLarge], 
+  'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">
   <div class="header-section">
-    <h2 class="dashboard-title">Monitoreo global</h2>
+    @if (breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]) {
+      <h2 class="dashboard-title">Monitoreo global</h2>
+    } @else {
+      <h2 class="dashboard-title">Resumen de planta</h2>
+    }
     <div class="user-interactions">
       <div class="icon language">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

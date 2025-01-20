@@ -75,3 +75,19 @@
     font-weight: 500;
   }
   
+
+/* BREAKPOINTS */
+
+.component-container .table-header{
+  display: none;
+}
+.component-container.medium-screen .table-header{
+  display: table-header-group;
+}
+
+.component-container .create-button{
+  display: none;
+}
+.component-container.medium-screen .create-button{
+  display: initial;
+}
