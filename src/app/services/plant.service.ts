@@ -40,4 +40,12 @@ export class PlantService {
       complete: () => this.fetchAll()
     });
   }
+
+  
+  delete(plantId: number) {
+    const httpHeaders: HttpHeaders = new HttpHeaders({"Authorization": "Bearer " + this.tokenService.getToken()});
+    const response = this.httpClient.delete(this.baseUrl + "/" + plantId, {headers: httpHeaders}).subscribe({
+      complete: () => this.fetchAll()
+    });
+  }
 }

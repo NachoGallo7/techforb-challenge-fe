@@ -1,4 +1,6 @@
-<div class="component-container">
+<div class="component-container" [ngClass]="{
+  'x-large-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.XLarge], 
+  'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">
   <tc-main-sidebar class="sidebar-component"></tc-main-sidebar>
   <tc-plants-dashboard class="dashboard-component"></tc-plants-dashboard>
 </div>

@@ -90,3 +90,26 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+.component-container .user-interactions{
+  display: none;
+}
+.component-container.medium-screen .user-interactions{
+  display: flex;
+}
+
+.component-container .kpis-section{
+  display: flex;
+  flex-direction: column;
+}
+.component-container.medium-screen .kpis-section{
+  display: grid;
+  flex-direction: column;
+}
+
+.component-container .per-plant-section{
+  display: none;
+}
+.component-container.medium-screen .per-plant-section{
+  display: initial;
+}

@@ -20,6 +20,7 @@
               <label [ngClass]="{'error': plantCountry.touched && plantCountry.invalid}" for="plantCountry" class="form-label">País</label>
               <select [ngClass]="{'error': plantCountry.touched && plantCountry.invalid}" required class="form-select" formControlName="plantCountry" id="plantCountry" aria-label="Choose a country">
                 <option value="" disabled selected hidden>Seleccione país</option>
+                <option value="" disabled [hidden]="countries.length !== 0">Cargando más países...</option>
                 @for (country of countries; track country.code) {
                   <option [ngValue]="country"><span class="fi fi-{{country.code.toLowerCase()}}"></span> {{country.name}}</option>
                 }

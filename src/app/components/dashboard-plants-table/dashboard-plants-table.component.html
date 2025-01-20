@@ -1,4 +1,6 @@
-<div class="component-container">
+<div class="component-container" [ngClass]="{
+  'x-large-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.XLarge], 
+  'medium-screen': breakpointLevel()>=breakpointLevelMap[Breakpoints.Medium]}">
   <div class="header-section">
     <h3 class="title">Plantas</h3>
     <button class="btn create-button" data-bs-toggle="modal" data-bs-target="#createPlantModal">+ Crear nueva planta</button>
@@ -32,7 +34,7 @@
               </button>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editPlantModal" (click)="emitToEditPlant(plant)">Editar</a></li>
-                <li><a class="dropdown-item">Eliminar</a></li>
+                <li><a class="dropdown-item" (click)="deletePlant(plant.id)">Eliminar</a></li>
               </ul>
             </div>
           </td>
