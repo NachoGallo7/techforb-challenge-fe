@@ -20,6 +20,6 @@ export class TokenService{
   }
 
   getToken(): string|undefined {
-    return this.token;
+    return this.token ?? localStorage.getItem("token") ?? undefined;
   }
 }
