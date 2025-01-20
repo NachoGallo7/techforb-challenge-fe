@@ -1,7 +1,7 @@
 const API_URL = "http://localhost:8080"
 
 export const environment = {
-  production: false
+  production: false,
   apis: {
     countries: `${API_URL}/countries`,
     plants: `${API_URL}/plants`,
