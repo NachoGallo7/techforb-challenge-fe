@@ -4,13 +4,14 @@ import { TokenService } from './token.service';
 import { PlantDTO, PostPlantDTO, PutPlantDTO } from '../models/plants';
 import { BehaviorSubject, finalize } from 'rxjs';
 import { Page } from '../models/pages';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlantService {
 
-  private baseUrl: string = "http://localhost:8080/plants"
+  private baseUrl: string = environment.apis.plants;
   private plantsSubject = new BehaviorSubject<PlantDTO[]>([]);
   plants$ = this.plantsSubject.asObservable();
 
